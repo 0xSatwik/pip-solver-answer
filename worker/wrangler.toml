@@ -1,0 +1,11 @@
+name = "pips-worker"
+main = "src/index.ts"
+compatibility_date = "2024-04-05"
+
+# [vars]
+# SECRET_KEY will be set via `wrangler secret put`
+
+[[d1_databases]]
+binding = "DB"
+database_name = "pips-db"
+database_id = "119270fd-c6c2-43e5-8492-6ccfc3012f34" # User: Run `wrangler d1 create pips-db` and update this ID
