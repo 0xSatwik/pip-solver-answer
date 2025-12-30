@@ -63,35 +63,35 @@ export default function PrivacyPage() {
                     </section>
 
                     <section>
-                        <h2 className be"text-2xl font-bold text-gray-900 mb-4">Data Security</h2>
-                    <p className="text-gray-600 leading-relaxed">
-                        We implement appropriate security measures to protect your personal information. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
-                    </p>
-                </section>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Data Security</h2>
+                        <p className="text-gray-600 leading-relaxed">
+                            We implement appropriate security measures to protect your personal information. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
+                        </p>
+                    </section>
 
-                <section>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Third-Party Services</h2>
-                    <p className="text-gray-600 leading-relaxed">
-                        Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies.
-                    </p>
-                </section>
+                    <section>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Third-Party Services</h2>
+                        <p className="text-gray-600 leading-relaxed">
+                            Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies.
+                        </p>
+                    </section>
 
-                <section>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Changes to This Policy</h2>
-                    <p className="text-gray-600 leading-relaxed">
-                        We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.
-                    </p>
-                </section>
+                    <section>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Changes to This Policy</h2>
+                        <p className="text-gray-600 leading-relaxed">
+                            We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.
+                        </p>
+                    </section>
 
-                <section>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
-                    <p className="text-gray-600 leading-relaxed">
-                        If you have any questions about this privacy policy, please contact us at{' '}
-                        <a href="/contact" className="text-indigo-600 hover:text-indigo-700 font-medium">our contact page</a>.
-                    </p>
-                </section>
+                    <section>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
+                        <p className="text-gray-600 leading-relaxed">
+                            If you have any questions about this privacy policy, please contact us at{' '}
+                            <a href="/contact" className="text-indigo-600 hover:text-indigo-700 font-medium">our contact page</a>.
+                        </p>
+                    </section>
+                </div>
             </div>
         </div>
-    </div >
-  );
+    );
 }
