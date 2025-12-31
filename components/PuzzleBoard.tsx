@@ -7,14 +7,14 @@ interface PuzzleBoardProps {
     puzzle: DifficultyPuzzle;
 }
 
-// Grayscale colors for regions (matching Pips reference style)
+// Colorful badges matching Pips reference style (pink, purple, teal, orange, green)
 const REGION_COLORS: Record<string, { bg: string; border: string; badge: string }> = {
     empty: { bg: 'bg-gray-50', border: 'border-gray-400', badge: '' },
-    equals: { bg: 'bg-gray-100', border: 'border-gray-500', badge: 'bg-gray-600' },
-    unequal: { bg: 'bg-gray-150', border: 'border-gray-500', badge: 'bg-gray-600' },
-    less: { bg: 'bg-gray-200', border: 'border-gray-500', badge: 'bg-gray-700' },
-    greater: { bg: 'bg-gray-200', border: 'border-gray-500', badge: 'bg-gray-700' },
-    sum: { bg: 'bg-gray-300', border: 'border-gray-600', badge: 'bg-gray-800' },
+    equals: { bg: 'bg-purple-50', border: 'border-purple-400', badge: 'bg-purple-600' },
+    unequal: { bg: 'bg-pink-50', border: 'border-pink-400', badge: 'bg-pink-600' },
+    less: { bg: 'bg-green-50', border: 'border-green-400', badge: 'bg-green-700' },
+    greater: { bg: 'bg-orange-50', border: 'border-orange-400', badge: 'bg-orange-600' },
+    sum: { bg: 'bg-teal-50', border: 'border-teal-400', badge: 'bg-teal-600' },
 };
 
 const DOT_POSITIONS: Record<number, [number, number][]> = {
@@ -113,7 +113,11 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
     };
 
     const getRegionBadgeInfo = (region: Region): { row: number; col: number } | null => {
-        if (region.type === 'empty' || region.target === undefined) return null;
+        // Show badge for all types except 'empty'
+        // equals/unequal types don't have a target, but still need to show = or ≠
+        if (region.type === 'empty') return null;
+        // For types that need a target value (sum, greater, less), check if target exists
+        if ((region.type === 'sum' || region.type === 'greater' || region.type === 'less') && region.target === undefined) return null;
         const lastIdx = region.indices[region.indices.length - 1];
         return { row: lastIdx[0], col: lastIdx[1] };
     };
@@ -151,7 +155,7 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
                                         </button>
                                         {showBadge && (
                                             <div className={`absolute -bottom-1.5 -right-1.5 w-6 h-6 sm:w-7 sm:h-7 ${colors.badge} text-white text-[10px] sm:text-xs font-bold rounded-full flex items-center justify-center shadow-lg transform rotate-45`}>
-                                                <span className="-rotate-45">{region.type === 'equals' ? '=' : region.type === 'greater' ? `>${region.target}` : region.type === 'less' ? `<${region.target}` : region.target}</span>
+                                                <span className="-rotate-45">{region.type === 'equals' ? '=' : region.type === 'unequal' ? '≠' : region.type === 'greater' ? `>${region.target}` : region.type === 'less' ? `<${region.target}` : region.target}</span>
                                             </div>
                                         )}
                                     </div>
@@ -167,8 +171,8 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
                 <p className="text-base sm:text-lg text-gray-600 font-medium">Reveal by clicking a domino below OR a cell on the board</p>
             </div>
 
-            {/* Dominoes - With Rainbow Colors like Pips */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 px-2">
+            {/* Dominoes - With Rainbow Colors like Pips (Centered Flex Layout) */}
+            <div className="flex flex-wrap justify-center gap-x-2 gap-y-4 sm:gap-4 px-2 max-w-4xl mx-auto">
                 {puzzle.dominoes.map((domino, idx) => {
                     const isUsed = usedDominoes.has(idx);
                     const dominoColor = getDominoColor(idx, totalDominoes);
@@ -177,7 +181,7 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
                             key={idx}
                             onClick={() => handleDominoClick(idx)}
                             disabled={isUsed}
-                            className={`flex rounded-xl overflow-hidden transition-all shadow-md ${isUsed ? 'opacity-40 cursor-not-allowed ring-2 ring-gray-300' : 'hover:shadow-xl hover:scale-105 cursor-pointer ring-2 ring-gray-800'}`}
+                            className={`flex rounded-lg overflow-hidden transition-all shadow-md ${isUsed ? 'opacity-40 cursor-not-allowed ring-1 ring-gray-300' : 'hover:shadow-xl hover:scale-105 cursor-pointer ring-2 ring-gray-800'}`}
                         >
                             <DominoTile dots={domino[0]} color={dominoColor} grayed={isUsed} />
                             <div className="w-0.5 bg-gray-600" />
@@ -218,7 +222,7 @@ function DominoTile({ dots, color, grayed }: { dots: number; color: string; gray
     const positions = DOT_POSITIONS[dots] || [];
     return (
         <div
-            className="w-10 h-14 sm:w-12 sm:h-16 p-1 sm:p-1.5"
+            className="w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 p-1 sm:p-1.5"
             style={{ backgroundColor: grayed ? '#e5e7eb' : color }}
         >
             <div className="grid grid-cols-3 grid-rows-3 w-full h-full">
