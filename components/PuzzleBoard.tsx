@@ -7,13 +7,14 @@ interface PuzzleBoardProps {
     puzzle: DifficultyPuzzle;
 }
 
+// Grayscale colors for regions (matching Pips reference style)
 const REGION_COLORS: Record<string, { bg: string; border: string; badge: string }> = {
-    sum: { bg: 'bg-cyan-100', border: 'border-cyan-400', badge: 'bg-teal-500' },
-    equals: { bg: 'bg-purple-100', border: 'border-purple-400', badge: 'bg-purple-500' },
-    empty: { bg: 'bg-white', border: 'border-gray-300', badge: '' },
-    greater: { bg: 'bg-orange-100', border: 'border-orange-400', badge: 'bg-orange-500' },
-    less: { bg: 'bg-yellow-100', border: 'border-yellow-400', badge: 'bg-yellow-600' },
-    unequal: { bg: 'bg-pink-100', border: 'border-pink-400', badge: 'bg-pink-500' },
+    empty: { bg: 'bg-gray-50', border: 'border-gray-400', badge: '' },
+    equals: { bg: 'bg-gray-100', border: 'border-gray-500', badge: 'bg-gray-600' },
+    unequal: { bg: 'bg-gray-150', border: 'border-gray-500', badge: 'bg-gray-600' },
+    less: { bg: 'bg-gray-200', border: 'border-gray-500', badge: 'bg-gray-700' },
+    greater: { bg: 'bg-gray-200', border: 'border-gray-500', badge: 'bg-gray-700' },
+    sum: { bg: 'bg-gray-300', border: 'border-gray-600', badge: 'bg-gray-800' },
 };
 
 const DOT_POSITIONS: Record<number, [number, number][]> = {
@@ -26,10 +27,23 @@ const DOT_POSITIONS: Record<number, [number, number][]> = {
     6: [[0, 0], [0, 2], [1, 0], [1, 2], [2, 0], [2, 2]],
 };
 
+// Generate HSL color for domino based on its index (Pips reference style)
+function getDominoColor(index: number, total: number): string {
+    const hue = (360 * index) / total;
+    return `hsl(${hue}, 100%, 80%)`;
+}
+
+// Generate darker HSL color for revealed cells
+function getDominoColorRevealed(index: number, total: number): string {
+    const hue = (360 * index) / total;
+    return `hsl(${hue}, 85%, 75%)`;
+}
+
 export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
     const [usedDominoes, setUsedDominoes] = useState<Set<number>>(new Set());
-    const [revealedCells, setRevealedCells] = useState<Map<string, number>>(new Map());
+    const [revealedCells, setRevealedCells] = useState<Map<string, { value: number; dominoIdx: number }>>(new Map());
 
+    const totalDominoes = puzzle.dominoes.length;
     const allIndices = puzzle.regions.flatMap(r => r.indices);
     const maxRow = Math.max(...allIndices.map(([r]) => r));
     const maxCol = Math.max(...allIndices.map(([, c]) => c));
@@ -61,7 +75,7 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
         const domino = puzzle.dominoes[index];
         const newRevealed = new Map(revealedCells);
         positions.forEach(([r, c], idx) => {
-            newRevealed.set(`${r}-${c}`, domino[idx]);
+            newRevealed.set(`${r}-${c}`, { value: domino[idx], dominoIdx: index });
         });
         setRevealedCells(newRevealed);
     };
@@ -73,7 +87,7 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
         const positions = puzzle.solution[result.dominoIdx];
         const domino = puzzle.dominoes[result.dominoIdx];
         positions.forEach(([r, c], idx) => {
-            newRevealed.set(`${r}-${c}`, domino[idx]);
+            newRevealed.set(`${r}-${c}`, { value: domino[idx], dominoIdx: result.dominoIdx });
         });
         setRevealedCells(newRevealed);
         setUsedDominoes(prev => new Set([...prev, result.dominoIdx]));
@@ -86,12 +100,12 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
 
     const handleSolveAll = () => {
         const allUsed = new Set<number>();
-        const allRevealed = new Map<string, number>();
+        const allRevealed = new Map<string, { value: number; dominoIdx: number }>();
         puzzle.dominoes.forEach((domino, idx) => {
             allUsed.add(idx);
             const positions = puzzle.solution[idx];
             positions.forEach(([r, c], j) => {
-                allRevealed.set(`${r}-${c}`, domino[j]);
+                allRevealed.set(`${r}-${c}`, { value: domino[j], dominoIdx: idx });
             });
         });
         setUsedDominoes(allUsed);
@@ -119,13 +133,21 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
                                 const revealed = revealedCells.get(cellKey);
                                 const badgeInfo = getRegionBadgeInfo(region);
                                 const showBadge = badgeInfo && badgeInfo.row === rowIdx && badgeInfo.col === colIdx;
+
+                                // Get cell background color - use domino color if revealed
+                                const cellBgStyle = revealed
+                                    ? { backgroundColor: getDominoColorRevealed(revealed.dominoIdx, totalDominoes) }
+                                    : {};
+
                                 return (
                                     <div key={cellKey} className="relative">
                                         <button
                                             onClick={() => handleCellClick(rowIdx, colIdx)}
-                                            className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 border-dashed rounded-lg flex items-center justify-center transition-all hover:scale-105 ${colors.bg} ${colors.border}`}
+                                            style={cellBgStyle}
+                                            className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 rounded-lg flex items-center justify-center transition-all hover:scale-105 shadow-sm ${revealed ? 'border-gray-700' : `border-dashed ${colors.bg} ${colors.border}`
+                                                }`}
                                         >
-                                            {revealed !== undefined ? <DotPattern dots={revealed} /> : <span className="text-xl sm:text-2xl font-bold text-gray-400">?</span>}
+                                            {revealed !== undefined ? <DotPattern dots={revealed.value} /> : <span className="text-xl sm:text-2xl font-bold text-gray-400">?</span>}
                                         </button>
                                         {showBadge && (
                                             <div className={`absolute -bottom-1.5 -right-1.5 w-6 h-6 sm:w-7 sm:h-7 ${colors.badge} text-white text-[10px] sm:text-xs font-bold rounded-full flex items-center justify-center shadow-lg transform rotate-45`}>
@@ -145,20 +167,21 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
                 <p className="text-base sm:text-lg text-gray-600 font-medium">Reveal by clicking a domino below OR a cell on the board</p>
             </div>
 
-            {/* Dominoes */}
+            {/* Dominoes - With Rainbow Colors like Pips */}
             <div className="flex flex-wrap justify-center gap-2 sm:gap-4 px-2">
                 {puzzle.dominoes.map((domino, idx) => {
                     const isUsed = usedDominoes.has(idx);
+                    const dominoColor = getDominoColor(idx, totalDominoes);
                     return (
                         <button
                             key={idx}
                             onClick={() => handleDominoClick(idx)}
                             disabled={isUsed}
-                            className={`flex border-2 rounded-lg overflow-hidden transition-all ${isUsed ? 'border-gray-200 opacity-40 cursor-not-allowed' : 'border-gray-400 hover:border-gray-600 hover:shadow-lg cursor-pointer'}`}
+                            className={`flex rounded-xl overflow-hidden transition-all shadow-md ${isUsed ? 'opacity-40 cursor-not-allowed ring-2 ring-gray-300' : 'hover:shadow-xl hover:scale-105 cursor-pointer ring-2 ring-gray-800'}`}
                         >
-                            <DominoTile dots={domino[0]} grayed={isUsed} />
-                            <div className="w-px bg-gray-300" />
-                            <DominoTile dots={domino[1]} grayed={isUsed} />
+                            <DominoTile dots={domino[0]} color={dominoColor} grayed={isUsed} />
+                            <div className="w-0.5 bg-gray-600" />
+                            <DominoTile dots={domino[1]} color={dominoColor} grayed={isUsed} />
                         </button>
                     );
                 })}
@@ -185,22 +208,25 @@ function DotPattern({ dots }: { dots: number }) {
                 const row = Math.floor(i / 3);
                 const col = i % 3;
                 const hasDot = positions.some(([r, c]) => r === row && c === col);
-                return <div key={i} className="flex items-center justify-center">{hasDot && <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-gray-800 rounded-full" />}</div>;
+                return <div key={i} className="flex items-center justify-center">{hasDot && <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-gray-900 rounded-full shadow-sm" />}</div>;
             })}
         </div>
     );
 }
 
-function DominoTile({ dots, grayed }: { dots: number; grayed: boolean }) {
+function DominoTile({ dots, color, grayed }: { dots: number; color: string; grayed: boolean }) {
     const positions = DOT_POSITIONS[dots] || [];
     return (
-        <div className={`w-10 h-14 sm:w-12 sm:h-16 p-1 sm:p-1.5 ${grayed ? 'bg-gray-100' : 'bg-white'}`}>
+        <div
+            className="w-10 h-14 sm:w-12 sm:h-16 p-1 sm:p-1.5"
+            style={{ backgroundColor: grayed ? '#e5e7eb' : color }}
+        >
             <div className="grid grid-cols-3 grid-rows-3 w-full h-full">
                 {Array.from({ length: 9 }).map((_, i) => {
                     const row = Math.floor(i / 3);
                     const col = i % 3;
                     const hasDot = positions.some(([r, c]) => r === row && c === col);
-                    return <div key={i} className="flex items-center justify-center">{hasDot && <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${grayed ? 'bg-gray-300' : 'bg-gray-800'}`} />}</div>;
+                    return <div key={i} className="flex items-center justify-center">{hasDot && <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full shadow-sm ${grayed ? 'bg-gray-400' : 'bg-gray-900'}`} />}</div>;
                 })}
             </div>
         </div>

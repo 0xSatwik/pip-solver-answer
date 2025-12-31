@@ -24,16 +24,16 @@ function splitHowSolved(text: string): string[] {
     return paragraphs.filter(p => p.trim());
 }
 
-// Split into exactly 3 equal paragraphs
+// Split into 2 equal paragraphs after complete sentences
 function splitLearned(text: string): string[] {
-    const words = text.split(' ');
-    const chunkSize = Math.ceil(words.length / 3);
-    const paragraphs: string[] = [];
-    for (let i = 0; i < 3; i++) {
-        const chunk = words.slice(i * chunkSize, (i + 1) * chunkSize).join(' ');
-        if (chunk) paragraphs.push(chunk);
-    }
-    return paragraphs;
+    const sentences = text.split(/(?<=[.!?])\s+(?=[A-Z])/);
+    if (sentences.length <= 1) return [text];
+
+    const midpoint = Math.floor(sentences.length / 2);
+    const firstHalf = sentences.slice(0, midpoint).join(' ');
+    const secondHalf = sentences.slice(midpoint).join(' ');
+
+    return [firstHalf, secondHalf].filter(p => p.trim());
 }
 
 export default function PuzzleView({ data }: PuzzleViewProps) {
@@ -52,8 +52,8 @@ export default function PuzzleView({ data }: PuzzleViewProps) {
                             key={diff}
                             onClick={() => setDifficulty(diff)}
                             className={`px-4 sm:px-8 py-2 sm:py-3 font-semibold text-sm sm:text-lg rounded-full transition-all duration-300 ${difficulty === diff
-                                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-md'
-                                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                                ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-md'
+                                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                                 }`}
                         >
                             {diff.charAt(0).toUpperCase() + diff.slice(1)}
