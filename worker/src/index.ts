@@ -378,4 +378,193 @@ app.get('/editor/:name', async (c) => {
 
 app.get('/', (c) => c.text('Pips Worker API is running.'));
 
-export default app;
+// Helper function to generate AI explanation with a specific key index for load balancing
+async function generateAIExplanationWithKeyIndex(data: any, env: Bindings, keyIndex: number): Promise<string | null> {
+    if (!env.GEMINI_API_KEYS) {
+        console.error("GEMINI_API_KEYS secret is missing.");
+        return null;
+    }
+
+    const rawKeys = env.GEMINI_API_KEYS;
+    const keys = rawKeys.split(/[\n,]+/).map(k => k.trim().replace(/^["']|["']$/g, '')).filter(k => k.length > 5);
+
+    if (keys.length === 0) {
+        console.error("No valid Gemini API keys found.");
+        return null;
+    }
+
+    // Rotate starting index based on keyIndex parameter to distribute load
+    const startIndex = keyIndex % keys.length;
+    const rotatedKeys = [...keys.slice(startIndex), ...keys.slice(0, startIndex)];
+
+    const systemPrompt = `
+    You are an expert NYT Pips puzzle solver and analyst. 
+    Analyze the following Pips puzzle data for date ${data.printDate}:
+    
+    ${JSON.stringify(data)}
+
+    Write a detailed expert analysis in JSON format with the following structure and try to make it as detailed and big as you can and write like you are a real human who solved it and explaining it and use most daily used words not too much hard words (do not use markdown):
+    {
+        "how_solved": "First-person narrative of how you expert solved it, strategies used, and walkthrough.",
+        "learned": "What you learned, interesting patterns, or tricky moves.",
+        "faqs": [
+            {"question": "Common user question?", "answer": "Answer"}
+        ]
+    }
+    Strictly return ONLY the JSON string.
+    `;
+
+    for (const apiKey of rotatedKeys) {
+        try {
+            console.log(`[Cron] Attempting Gemini generation with key ending in ...${apiKey.slice(-4)}`);
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: systemPrompt }] }]
+                })
+            });
+
+            if (response.ok) {
+                const result = await response.json() as any;
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (text) {
+                    return text.replace(/```json\n?|```/g, '').trim();
+                }
+                console.warn(`[Cron] Gemini returned 200 but no text.`);
+                return null;
+            } else {
+                if (response.status === 429) {
+                    console.warn(`[Cron] Key 429 Rate Limit, trying next key.`);
+                    continue;
+                }
+                console.error(`[Cron] Gemini API Error ${response.status}`);
+                if (response.status >= 500) continue;
+            }
+
+        } catch (e) {
+            console.error("[Cron] Gemini Network Error:", e);
+            continue;
+        }
+    }
+    return null;
+}
+
+// Add a single date to database (helper for scheduled handler)
+async function addDateToDatabase(date: string, env: Bindings, keyIndex: number): Promise<{ success: boolean; message: string }> {
+    try {
+        // Check if date already exists
+        const existing = await env.DB.prepare('SELECT 1 FROM pips WHERE date = ?').bind(date).first();
+        if (existing) {
+            return { success: true, message: `Date ${date} already exists, skipping.` };
+        }
+
+        // Fetch from NYT API
+        const response = await fetch(`https://www.nytimes.com/svc/pips/v1/${date}.json`);
+        if (!response.ok) {
+            return { success: false, message: `Failed to fetch NYT data for ${date}: ${response.status}` };
+        }
+        const data = await response.json() as any;
+
+        // Extract editor and constructors
+        const editor = data.editor || '';
+        const constructorsSet = new Set<string>();
+        ['easy', 'medium', 'hard'].forEach(diff => {
+            if (data[diff] && data[diff].constructors) {
+                constructorsSet.add(data[diff].constructors);
+            }
+        });
+        const constructors = Array.from(constructorsSet).join(', ');
+
+        // Generate AI Explanation with specific key index for load balancing
+        const explanation = await generateAIExplanationWithKeyIndex(data, env, keyIndex);
+        if (!explanation) {
+            return { success: false, message: `Failed to generate AI explanation for ${date} - all keys exhausted.` };
+        }
+
+        const jsonString = JSON.stringify(data);
+
+        // Insert into database
+        await env.DB.prepare(
+            `INSERT OR REPLACE INTO pips (date, data, editor, constructors, explanation) VALUES (?, ?, ?, ?, ?)`
+        ).bind(date, jsonString, editor, constructors, explanation).run();
+
+        return { success: true, message: `Successfully added ${date} with AI explanation.` };
+
+    } catch (e: any) {
+        return { success: false, message: `Error processing ${date}: ${e.message}` };
+    }
+}
+
+// Scheduled event handler - runs at 12:00 AM UTC daily
+async function handleScheduled(event: ScheduledEvent, env: Bindings, ctx: ExecutionContext): Promise<void> {
+    console.log('[Cron] Scheduled task started at', new Date().toISOString());
+
+    try {
+        // Get the latest date from the database
+        const latestResult = await env.DB.prepare('SELECT MAX(date) as latest_date FROM pips').first() as { latest_date: string | null };
+
+        if (!latestResult || !latestResult.latest_date) {
+            console.log('[Cron] No data in database. Using today as base date.');
+            // If no data exists, use today's date as base
+            const today = new Date();
+            const y = today.getUTCFullYear();
+            const m = String(today.getUTCMonth() + 1).padStart(2, '0');
+            const d = String(today.getUTCDate()).padStart(2, '0');
+            latestResult.latest_date = `${y}-${m}-${d}`;
+        }
+
+        console.log('[Cron] Latest date in database:', latestResult.latest_date);
+
+        // Parse the latest date and calculate next 2 days
+        const latestDate = new Date(latestResult.latest_date + 'T00:00:00Z');
+        const datesToAdd: string[] = [];
+
+        for (let i = 1; i <= 2; i++) {
+            const nextDate = new Date(latestDate);
+            nextDate.setUTCDate(nextDate.getUTCDate() + i);
+            const y = nextDate.getUTCFullYear();
+            const m = String(nextDate.getUTCMonth() + 1).padStart(2, '0');
+            const d = String(nextDate.getUTCDate()).padStart(2, '0');
+            datesToAdd.push(`${y}-${m}-${d}`);
+        }
+
+        console.log('[Cron] Dates to process:', datesToAdd);
+
+        // Process each date with a different key index for load balancing
+        for (let i = 0; i < datesToAdd.length; i++) {
+            const date = datesToAdd[i];
+            console.log(`[Cron] Processing date ${date} with key index ${i}`);
+
+            const result = await addDateToDatabase(date, env, i);
+            console.log(`[Cron] ${result.message}`);
+        }
+
+        console.log('[Cron] Scheduled task completed successfully.');
+
+    } catch (e: any) {
+        console.error('[Cron] Scheduled task failed:', e.message);
+    }
+}
+
+// Manual trigger endpoint for testing (protected by secret key)
+app.get('/trigger-cron/:key', async (c) => {
+    const key = c.req.param('key');
+    if (key !== c.env.SECRET_KEY) {
+        return c.json({ error: 'Unauthorized' }, 401);
+    }
+
+    // Create a mock scheduled event and execution context
+    const mockEvent = { scheduledTime: Date.now(), cron: '0 0 * * *' } as ScheduledEvent;
+    const mockCtx = { waitUntil: (p: Promise<any>) => { } } as ExecutionContext;
+
+    // Run the scheduled handler
+    await handleScheduled(mockEvent, c.env, mockCtx);
+
+    return c.json({ success: true, message: 'Cron job triggered manually. Check logs for details.' });
+});
+
+export default {
+    fetch: app.fetch,
+    scheduled: handleScheduled,
+};
