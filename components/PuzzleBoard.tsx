@@ -5,6 +5,8 @@ import { DifficultyPuzzle, Region } from '@/lib/api';
 
 interface PuzzleBoardProps {
     puzzle: DifficultyPuzzle;
+    initialSolved?: boolean;
+    readOnly?: boolean;
 }
 
 // Colorful badges matching Pips reference style (pink, purple, teal, orange, green)
@@ -39,9 +41,23 @@ function getDominoColorRevealed(index: number, total: number): string {
     return `hsl(${hue}, 85%, 75%)`;
 }
 
-export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
-    const [usedDominoes, setUsedDominoes] = useState<Set<number>>(new Set());
-    const [revealedCells, setRevealedCells] = useState<Map<string, { value: number; dominoIdx: number }>>(new Map());
+export default function PuzzleBoard({ puzzle, initialSolved = false, readOnly = false }: PuzzleBoardProps) {
+    const [usedDominoes, setUsedDominoes] = useState<Set<number>>(() => {
+        if (!initialSolved) return new Set();
+        return new Set(puzzle.dominoes.map((_, i) => i));
+    });
+
+    const [revealedCells, setRevealedCells] = useState<Map<string, { value: number; dominoIdx: number }>>(() => {
+        if (!initialSolved) return new Map();
+        const allRevealed = new Map<string, { value: number; dominoIdx: number }>();
+        puzzle.dominoes.forEach((domino, idx) => {
+            const positions = puzzle.solution[idx];
+            positions.forEach(([r, c], j) => {
+                allRevealed.set(`${r}-${c}`, { value: domino[j], dominoIdx: idx });
+            });
+        });
+        return allRevealed;
+    });
 
     const totalDominoes = puzzle.dominoes.length;
     const allIndices = puzzle.regions.flatMap(r => r.indices);
@@ -69,7 +85,7 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
     };
 
     const handleDominoClick = (index: number) => {
-        if (usedDominoes.has(index)) return;
+        if (readOnly || usedDominoes.has(index)) return;
         setUsedDominoes(prev => new Set([...prev, index]));
         const positions = puzzle.solution[index];
         const domino = puzzle.dominoes[index];
@@ -81,6 +97,7 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
     };
 
     const handleCellClick = (row: number, col: number) => {
+        if (readOnly) return;
         const result = getCellValue(row, col);
         if (!result) return;
         const newRevealed = new Map(revealedCells);
@@ -148,7 +165,8 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
                                         <button
                                             onClick={() => handleCellClick(rowIdx, colIdx)}
                                             style={cellBgStyle}
-                                            className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 rounded-lg flex items-center justify-center transition-all hover:scale-105 shadow-sm ${revealed ? 'border-gray-700' : `border-dashed ${colors.bg} ${colors.border}`
+                                            disabled={readOnly}
+                                            className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 rounded-lg flex items-center justify-center transition-all ${readOnly ? '' : 'hover:scale-105'} shadow-sm ${revealed ? 'border-gray-700' : `border-dashed ${colors.bg} ${colors.border}`
                                                 }`}
                                         >
                                             {revealed !== undefined ? <DotPattern dots={revealed.value} /> : <span className="text-xl sm:text-2xl font-bold text-gray-400">?</span>}
@@ -166,40 +184,44 @@ export default function PuzzleBoard({ puzzle }: PuzzleBoardProps) {
                 </div>
             </div>
 
-            {/* Instructions */}
-            <div className="text-center">
-                <p className="text-base sm:text-lg text-gray-600 font-medium">Reveal by clicking a domino below OR a cell on the board</p>
-            </div>
+            {!readOnly && (
+                <>
+                    {/* Instructions */}
+                    <div className="text-center">
+                        <p className="text-base sm:text-lg text-gray-600 font-medium">Reveal by clicking a domino below OR a cell on the board</p>
+                    </div>
 
-            {/* Dominoes - With Rainbow Colors like Pips (Centered Flex Layout) */}
-            <div className="flex flex-wrap justify-center gap-x-2 gap-y-4 sm:gap-4 px-2 max-w-4xl mx-auto">
-                {puzzle.dominoes.map((domino, idx) => {
-                    const isUsed = usedDominoes.has(idx);
-                    const dominoColor = getDominoColor(idx, totalDominoes);
-                    return (
-                        <button
-                            key={idx}
-                            onClick={() => handleDominoClick(idx)}
-                            disabled={isUsed}
-                            className={`flex rounded-lg overflow-hidden transition-all shadow-md ${isUsed ? 'opacity-40 cursor-not-allowed ring-1 ring-gray-300' : 'hover:shadow-xl hover:scale-105 cursor-pointer ring-2 ring-gray-800'}`}
-                        >
-                            <DominoTile dots={domino[0]} color={dominoColor} grayed={isUsed} />
-                            <div className="w-0.5 bg-gray-600" />
-                            <DominoTile dots={domino[1]} color={dominoColor} grayed={isUsed} />
+                    {/* Dominoes - With Rainbow Colors like Pips (Centered Flex Layout) */}
+                    <div className="flex flex-wrap justify-center gap-x-2 gap-y-4 sm:gap-4 px-2 max-w-4xl mx-auto">
+                        {puzzle.dominoes.map((domino, idx) => {
+                            const isUsed = usedDominoes.has(idx);
+                            const dominoColor = getDominoColor(idx, totalDominoes);
+                            return (
+                                <button
+                                    key={idx}
+                                    onClick={() => handleDominoClick(idx)}
+                                    disabled={isUsed}
+                                    className={`flex rounded-lg overflow-hidden transition-all shadow-md ${isUsed ? 'opacity-40 cursor-not-allowed ring-1 ring-gray-300' : 'hover:shadow-xl hover:scale-105 cursor-pointer ring-2 ring-gray-800'}`}
+                                >
+                                    <DominoTile dots={domino[0]} color={dominoColor} grayed={isUsed} />
+                                    <div className="w-0.5 bg-gray-600" />
+                                    <DominoTile dots={domino[1]} color={dominoColor} grayed={isUsed} />
+                                </button>
+                            );
+                        })}
+                    </div>
+
+                    {/* Clear and Solve Buttons */}
+                    <div className="flex justify-center gap-4">
+                        <button onClick={handleClear} className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition">
+                            Clear
                         </button>
-                    );
-                })}
-            </div>
-
-            {/* Clear and Solve Buttons */}
-            <div className="flex justify-center gap-4">
-                <button onClick={handleClear} className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition">
-                    Clear
-                </button>
-                <button onClick={handleSolveAll} className="px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-medium hover:from-indigo-600 hover:to-purple-600 transition shadow-md">
-                    Solve All
-                </button>
-            </div>
+                        <button onClick={handleSolveAll} className="px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-medium hover:from-indigo-600 hover:to-purple-600 transition shadow-md">
+                            Solve All
+                        </button>
+                    </div>
+                </>
+            )}
         </div>
     );
 }
