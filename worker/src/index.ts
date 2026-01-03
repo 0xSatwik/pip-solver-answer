@@ -6,26 +6,92 @@ type Bindings = {
     DB: D1Database;
     SECRET_KEY: string;
     GEMINI_API_KEYS: string;
+    GITHUB_TOKEN: string;
+    GITHUB_OWNER: string;
+    GITHUB_REPO: string;
+    GITHUB_BRANCH: string;
+    GITHUB_PATH: string;
 };
 
 // Disable strict mode so /date/2025-12-15/ matches /date/2025-12-15
 const app = new Hono<{ Bindings: Bindings }>({ strict: false });
 
+// GitHub Helper
+async function pushToGitHub(content: string, env: Bindings, message: string) {
+    if (!env.GITHUB_TOKEN) {
+        console.error("GITHUB_TOKEN is missing.");
+        return;
+    }
+
+    const url = `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${env.GITHUB_PATH}`;
+    const headers = {
+        'Authorization': `token ${env.GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': 'Cloudflare-Worker'
+    };
+
+    try {
+        // 1. Get current SHA (if file exists)
+        let sha = '';
+        const getRes = await fetch(url, { headers });
+        if (getRes.ok) {
+            const getData = await getRes.json() as any;
+            sha = getData.sha;
+        }
+
+        // 2. Push update
+        // Content must be base64 encoded
+        // Standard btoa handles latin1, for utf8 need a trick or manual implementation
+        // But JSON.stringify result is usually safe for simple btoa if no emojis/special chars?
+        // Let's use a safe encoder for UTF8 strings
+        const encoder = new TextEncoder();
+        const data = encoder.encode(content);
+        let binary = '';
+        for (let i = 0; i < data.byteLength; i++) {
+            binary += String.fromCharCode(data[i]);
+        }
+        const base64Content = btoa(binary);
+
+        const body: any = {
+            message: message,
+            content: base64Content,
+            branch: env.GITHUB_BRANCH
+        };
+        if (sha) body.sha = sha;
+
+        const putRes = await fetch(url, {
+            method: 'PUT',
+            headers,
+            body: JSON.stringify(body)
+        });
+
+        if (!putRes.ok) {
+            const err = await putRes.text();
+            console.error('GitHub Push Error:', err);
+        } else {
+            console.log('GitHub Push Success');
+        }
+
+    } catch (e) {
+        console.error('GitHub Helper Exception:', e);
+    }
+}
+
 // CORS configuration - whitelist allowed origins
 app.use('*', cors({
-    origin: ['http://localhost:3000', 'https://pipsanswer.vercel.app'],
+    origin: ['http://localhost:3000', 'https://pipsanswer.online', 'https://pipsanswer.vercel.app'],
     allowMethods: ['GET', 'POST', 'OPTIONS'],
     allowHeaders: ['Content-Type'],
 }));
 
-function getETDate(offsetDays: number = 0): string {
+function getDateInZone(offsetDays: number = 0, timeZone: string = 'Pacific/Kiritimati'): string {
     const date = new Date();
-    const etDate = new Date(date.toLocaleString('en-US', { timeZone: 'America/New_York' }));
-    etDate.setDate(etDate.getDate() + offsetDays);
+    const targetDate = new Date(date.toLocaleString('en-US', { timeZone }));
+    targetDate.setDate(targetDate.getDate() + offsetDays);
 
-    const y = etDate.getFullYear();
-    const m = String(etDate.getMonth() + 1).padStart(2, '0');
-    const d = String(etDate.getDate()).padStart(2, '0');
+    const y = targetDate.getFullYear();
+    const m = String(targetDate.getMonth() + 1).padStart(2, '0');
+    const d = String(targetDate.getDate()).padStart(2, '0');
     return `${y}-${m}-${d}`;
 }
 
@@ -303,14 +369,14 @@ app.get('/id/:id', async (c) => {
 });
 
 app.get('/today', async (c) => {
-    const date = getETDate(0);
+    const date = getDateInZone(0);
     const result = await c.env.DB.prepare('SELECT data, explanation FROM pips WHERE date = ?').bind(date).first();
     if (!result) return c.json({ error: 'Not found for today (' + date + ')' }, 404);
     return c.json(formatResponse(result));
 });
 
 app.get('/yesterday', async (c) => {
-    const date = getETDate(-1);
+    const date = getDateInZone(-1);
     const result = await c.env.DB.prepare('SELECT data, explanation FROM pips WHERE date = ?').bind(date).first();
     if (!result) return c.json({ error: 'Not found for yesterday (' + date + ')' }, 404);
     return c.json(formatResponse(result));
@@ -320,10 +386,11 @@ app.get('/list', async (c) => {
     const page = parseInt(c.req.query('page') || '1');
     const limit = parseInt(c.req.query('limit') || '20');
     const offset = (page - 1) * limit;
+    const today = getDateInZone(0);
 
     const { results } = await c.env.DB.prepare(
-        'SELECT date, data, explanation FROM pips ORDER BY date DESC LIMIT ? OFFSET ?'
-    ).bind(limit, offset).all();
+        'SELECT date, data, explanation FROM pips WHERE date <= ? ORDER BY date DESC LIMIT ? OFFSET ?'
+    ).bind(today, limit, offset).all();
 
     if (!results) return c.json([]);
 
@@ -538,6 +605,19 @@ async function handleScheduled(event: ScheduledEvent, env: Bindings, ctx: Execut
 
             const result = await addDateToDatabase(date, env, i);
             console.log(`[Cron] ${result.message}`);
+        }
+
+        // --- NEW: Update today.json on GitHub ---
+        // Determine "Today" in target timezone (UTC+14)
+        const todayStr = getDateInZone(0); // Assuming getDateInZone is globally available or copied
+        console.log(`[Cron] Updating GitHub today.json for date: ${todayStr}`);
+
+        const todayData = await env.DB.prepare('SELECT data, explanation FROM pips WHERE date = ?').bind(todayStr).first();
+        if (todayData) {
+            const formatted = formatResponse(todayData);
+            await pushToGitHub(JSON.stringify(formatted, null, 2), env, `Daily Update: ${todayStr}`);
+        } else {
+            console.warn(`[Cron] Could not find data for ${todayStr} to push to GitHub.`);
         }
 
         console.log('[Cron] Scheduled task completed successfully.');

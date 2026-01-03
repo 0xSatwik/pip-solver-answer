@@ -1,4 +1,5 @@
 const API_BASE = 'https://pips-worker.pipssolver.workers.dev';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://pipsanswer.online';
 
 export interface PuzzleData {
     printDate: string;
@@ -36,8 +37,15 @@ export interface FAQ {
 }
 
 export async function fetchToday(): Promise<PuzzleData> {
-    const res = await fetch(`${API_BASE}/today`, { next: { revalidate: 300 } });
-    if (!res.ok) throw new Error('Failed to fetch today');
+    // Fetch from static JSON file generated daily
+    const res = await fetch(`${SITE_URL}/today.json`, { next: { revalidate: 60 } });
+    if (!res.ok) {
+        // Fallback to API if static file fails
+        console.warn('Static today.json failed, falling back to API');
+        const apiRes = await fetch(`${API_BASE}/today`, { next: { revalidate: 300 } });
+        if (!apiRes.ok) throw new Error('Failed to fetch today');
+        return apiRes.json();
+    }
     return res.json();
 }
 

@@ -9,11 +9,37 @@ export default function SolverPage() {
     const today = new Date();
     const minDate = new Date('2025-08-18');
 
-    const [selectedDate, setSelectedDate] = useState<string>(today.toISOString().split('T')[0]);
+    const [selectedDate, setSelectedDate] = useState<string>(() => {
+        return new Date().toISOString().split('T')[0];
+    });
+    const [maxDate, setMaxDate] = useState<string>(() => {
+        return new Date().toISOString().split('T')[0];
+    });
     const [puzzleData, setPuzzleData] = useState<PuzzleData | null>(null);
     const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>('easy');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    // Fetch the latest available date from static JSON (UTC+14)
+    useEffect(() => {
+        fetch('/today.json')
+            .then(res => {
+                if (!res.ok) throw new Error('No static file');
+                return res.json();
+            })
+            .then((data: PuzzleData) => {
+                if (data && data.printDate) {
+                    setMaxDate(data.printDate);
+                    // Optionally update selected date if it was just "today" local time and server is ahead
+                    // But usually safer to let user choose or stick to local "today".
+                    // However, if local today < server today, user might want to see the latest.
+                    // For now, just setting the max allowed date.
+                }
+            })
+            .catch(() => {
+                // Ignore, stick to local date as max
+            });
+    }, []);
 
     useEffect(() => {
         async function loadPuzzle() {
@@ -72,7 +98,7 @@ export default function SolverPage() {
                             type="date"
                             value={selectedDate}
                             min={minDate.toISOString().split('T')[0]}
-                            max={today.toISOString().split('T')[0]}
+                            max={maxDate}
                             onChange={(e) => setSelectedDate(e.target.value)}
                             className="px-4 py-2 rounded-xl bg-white text-gray-900 font-medium cursor-pointer focus:ring-2 focus:ring-purple-400 outline-none"
                         />
@@ -97,8 +123,8 @@ export default function SolverPage() {
                                 key={diff}
                                 onClick={() => setDifficulty(diff)}
                                 className={`px-6 sm:px-8 py-2 sm:py-3 font-semibold text-sm sm:text-lg rounded-full transition-all duration-300 ${difficulty === diff
-                                        ? 'bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white shadow-md'
-                                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                                    ? 'bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white shadow-md'
+                                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                                     }`}
                             >
                                 {diff.charAt(0).toUpperCase() + diff.slice(1)}
