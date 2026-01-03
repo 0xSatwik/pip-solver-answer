@@ -6,6 +6,7 @@ import PuzzleBoard from './PuzzleBoard';
 
 interface PuzzleViewProps {
     data: PuzzleData;
+    titleContext?: 'today' | 'yesterday' | 'date';
 }
 
 // Extract sections for Easy, Medium, Hard from the big text block
@@ -57,7 +58,7 @@ function splitLearned(text: string): string[] {
     return [firstHalf, secondHalf].filter(p => p.trim());
 }
 
-export default function PuzzleView({ data }: PuzzleViewProps) {
+export default function PuzzleView({ data, titleContext = 'date' }: PuzzleViewProps) {
     const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>('easy');
 
     // Split explanation by difficulty
@@ -112,7 +113,14 @@ export default function PuzzleView({ data }: PuzzleViewProps) {
                                         <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
                                             <span className="text-xl sm:text-2xl">🧠</span>
                                         </div>
-                                        <h3 className="text-lg sm:text-2xl font-extrabold text-blue-900 capitalize">{diff} Difficulty Hints</h3>
+                                        <h3 className="text-lg sm:text-2xl font-extrabold text-blue-900 capitalize">
+                                            {titleContext === 'today'
+                                                ? `Nyt Pips ${diff} answer for today`
+                                                : titleContext === 'yesterday'
+                                                    ? `Nyt Pips ${diff} answer for yesterday`
+                                                    : `Nyt Pips ${diff} answer for ${data.printDate}`
+                                            }
+                                        </h3>
                                     </div>
 
                                     {/* Solved Board Preview */}

@@ -8,12 +8,12 @@ export async function generateMetadata(): Promise<Metadata> {
         const data = await fetchToday();
         const date = data.printDate;
         return {
-            title: `Today's Pips Answer and Clue (${date}) | NYT Pips Solution`,
-            description: `Get today's Pips answer for ${date}. Complete solution with clues for Easy, Medium, and Hard difficulty levels. Interactive puzzle board with expert solving strategies.`,
-            keywords: ["pips answer today", "today pips answer", `pips answer ${date}`, "nyt pips today", "pips clue today", "pips solution", "pips puzzle answer"],
+            title: `Nyt Pips Answer and clue today (${date})`,
+            description: `nyt pips answer, nyt pips answer today, nyt pips answer for ${date}, nyt pips hard answer today, nyt pips clue today`,
+            keywords: [`nyt pips answer`, "nyt pips answer today", `nyt pips answer for ${date}`, "nyt pips hard answer today", "nyt pips clue today"],
             openGraph: {
-                title: `Today's Pips Answer (${date})`,
-                description: `Complete Pips puzzle solution for ${date} with expert analysis`,
+                title: `Nyt Pips Answer and clue today (${date})`,
+                description: `nyt pips answer, nyt pips answer today, nyt pips answer for ${date}, nyt pips hard answer today, nyt pips clue today`,
                 type: "article",
             },
         };
@@ -59,9 +59,11 @@ export default async function TodayPage() {
                         <span>Today's Answer</span>
                     </div>
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3">
-                        Today's Pips Answer and Clue
+                        Nyt Pips Answer and clue today ({data.printDate})
                     </h1>
-                    <p className="text-xl sm:text-2xl text-blue-100 font-medium">{data.printDate}</p>
+                    <p className="text-lg sm:text-xl text-blue-100 font-medium max-w-4xl mx-auto leading-relaxed opacity-90">
+                        nyt pips answer, nyt pips answer today, nyt pips answer for {data.printDate}, nyt pips hard answer today, nyt pips clue today
+                    </p>
                     <div className="mt-6 flex flex-wrap gap-3">
                         <Link href="/yesterday" className="px-4 py-2 bg-white/10 backdrop-blur rounded-lg text-sm hover:bg-white/20 transition">
                             ← Yesterday's Answer
@@ -73,7 +75,7 @@ export default async function TodayPage() {
                 </div>
             </div>
 
-            <PuzzleView data={data} />
+            <PuzzleView data={data} titleContext="today" />
 
             {/* Internal Links Section */}
             <div className="max-w-6xl mx-auto px-4 py-12">

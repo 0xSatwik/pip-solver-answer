@@ -8,12 +8,12 @@ type Props = { params: Promise<{ date: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { date } = await params;
     return {
-        title: `Pips Answer and Clue for ${date} | NYT Pips Solution`,
-        description: `Complete Pips puzzle answer for ${date}. Solutions for Easy, Medium, and Hard levels with expert analysis and solving strategies.`,
-        keywords: [`pips answer ${date}`, "pips puzzle solution", "nyt pips answer", `pips clue ${date}`, "pips solver"],
+        title: `Nyt Pips answer and clue for ${date}`,
+        description: `nyt pips answer ${date}, pips answer for ${date}, nytpips hard answer for ${date}, nyt pips medium answer for ${date}, nyt pips easy answer for ${date}`,
+        keywords: [`nyt pips answer ${date}`, `pips answer for ${date}`, `nytpips hard answer for ${date}`, `nyt pips medium answer for ${date}`, `nyt pips easy answer for ${date}`],
         openGraph: {
-            title: `Pips Answer for ${date}`,
-            description: `Complete Pips puzzle solution for ${date}`,
+            title: `Nyt Pips answer and clue for ${date}`,
+            description: `nyt pips answer ${date}, pips answer for ${date}, nytpips hard answer for ${date}, nyt pips medium answer for ${date}, nyt pips easy answer for ${date}`,
             type: "article",
         },
     };
@@ -50,9 +50,11 @@ export default async function AnswerPage({ params }: Props) {
                         <span>{date}</span>
                     </div>
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3">
-                        Pips Answer and Clue
+                        Nyt Pips answer and clue for {data.printDate}
                     </h1>
-                    <p className="text-xl sm:text-2xl text-indigo-100 font-medium">{data.printDate}</p>
+                    <p className="text-lg sm:text-xl text-indigo-100 font-medium max-w-4xl mx-auto leading-relaxed opacity-90">
+                        nyt pips answer {data.printDate}, pips answer for {data.printDate}, nytpips hard answer for {data.printDate}, nyt pips medium answer for {data.printDate}, nyt pips easy answer for {data.printDate}
+                    </p>
                     <div className="mt-6 flex flex-wrap gap-3">
                         <Link href="/today" className="px-4 py-2 bg-white/10 backdrop-blur rounded-lg text-sm hover:bg-white/20 transition">
                             Today's Answer
@@ -64,7 +66,7 @@ export default async function AnswerPage({ params }: Props) {
                 </div>
             </div>
 
-            <PuzzleView data={data} />
+            <PuzzleView data={data} titleContext="date" />
 
             <div className="max-w-6xl mx-auto px-4 py-12">
                 <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8">

@@ -30,10 +30,9 @@ export default function SolverPage() {
             .then((data: PuzzleData) => {
                 if (data && data.printDate) {
                     setMaxDate(data.printDate);
-                    // Optionally update selected date if it was just "today" local time and server is ahead
-                    // But usually safer to let user choose or stick to local "today".
-                    // However, if local today < server today, user might want to see the latest.
-                    // For now, just setting the max allowed date.
+                    // Force update selected date if we have a newer date from "today.json"
+                    // This ensures the solver shows the latest available puzzle by default
+                    setSelectedDate(data.printDate);
                 }
             })
             .catch(() => {
