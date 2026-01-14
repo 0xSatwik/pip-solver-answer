@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { formatDateToSlug } from '@/lib/utils';
 
 interface ArchiveItem {
     date: string;
@@ -64,7 +65,7 @@ export default function ArchivePage() {
                             {items.map((item) => (
                                 <Link
                                     key={item.date}
-                                    href={`/answer/${item.date}`}
+                                    href={`/nyt-pips-answer-for-${formatDateToSlug(item.date)}`}
                                     className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group border border-gray-100"
                                 >
                                     <div className="flex items-center justify-between mb-4">

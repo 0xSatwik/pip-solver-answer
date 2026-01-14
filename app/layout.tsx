@@ -46,6 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                   <Link href="/about" className="block text-gray-400 hover:text-white transition">About Us</Link>
                   <Link href="/contact" className="block text-gray-400 hover:text-white transition">Contact</Link>
                   <Link href="/privacy" className="block text-gray-400 hover:text-white transition">Privacy Policy</Link>
+                  <Link href="/site-map" className="block text-gray-400 hover:text-white transition">Sitemap</Link>
                 </div>
               </div>
             </div>

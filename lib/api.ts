@@ -1,5 +1,5 @@
-const API_BASE = 'https://pips-worker.pipssolver.workers.dev';
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://pipsanswer.online');
+export const API_BASE = 'https://pips-worker.pipssolver.workers.dev';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://pipsanswer.online');
 
 export interface PuzzleData {
     printDate: string;
