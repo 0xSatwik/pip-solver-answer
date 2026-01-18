@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
 import Header from "@/components/Header";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Pips Answer | Daily NYT Pips Puzzle Solutions & Clues",
@@ -17,6 +18,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-56S8R3GH72" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-56S8R3GH72');
+          `}
+        </Script>
+      </head>
       <body style={{ fontFamily: 'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"' }}>
         <Header />
         <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">{children}</main>
