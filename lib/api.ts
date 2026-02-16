@@ -25,8 +25,20 @@ export interface Region {
     target?: number;
 }
 
+export interface DifficultyExplanation {
+    heading: string;
+    body: string;
+}
+
 export interface Explanation {
-    how_solved: string;
+    // New format (per-difficulty)
+    easy?: DifficultyExplanation;
+    medium?: DifficultyExplanation;
+    hard?: DifficultyExplanation;
+    tips?: string;
+    // Legacy format (single blob)
+    how_solved?: string;
+    // Common fields
     learned: string;
     faqs: FAQ[];
 }

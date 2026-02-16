@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { DifficultyPuzzle, Region } from '@/lib/api';
 
 interface PuzzleBoardProps {
@@ -41,6 +41,63 @@ function getDominoColorRevealed(index: number, total: number): string {
     return `hsl(${hue}, 85%, 75%)`;
 }
 
+// Sizing tiers based on grid size
+type SizeTier = 'normal' | 'compact' | 'tiny';
+
+function getSizeTier(maxRow: number, maxCol: number): SizeTier {
+    const maxDim = Math.max(maxRow, maxCol);
+    if (maxDim >= 9) return 'tiny';
+    if (maxDim >= 6) return 'compact';
+    return 'normal';
+}
+
+// Cell size classes per tier
+const CELL_CLASSES: Record<SizeTier, string> = {
+    normal: 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16',
+    compact: 'w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14',
+    tiny: 'w-7 h-7 sm:w-10 sm:h-10 md:w-12 md:h-12',
+};
+
+// Dot pattern size classes per tier
+const DOT_GRID_CLASSES: Record<SizeTier, string> = {
+    normal: 'w-8 h-8 sm:w-10 sm:h-10',
+    compact: 'w-6 h-6 sm:w-8 sm:h-8',
+    tiny: 'w-5 h-5 sm:w-7 sm:h-7',
+};
+
+const DOT_CLASSES: Record<SizeTier, string> = {
+    normal: 'w-2 h-2 sm:w-2.5 sm:h-2.5',
+    compact: 'w-1.5 h-1.5 sm:w-2 sm:h-2',
+    tiny: 'w-1 h-1 sm:w-1.5 sm:h-1.5',
+};
+
+// Badge size classes per tier
+const BADGE_CLASSES: Record<SizeTier, string> = {
+    normal: 'w-6 h-6 sm:w-7 sm:h-7 text-[10px] sm:text-xs',
+    compact: 'w-5 h-5 sm:w-6 sm:h-6 text-[8px] sm:text-[10px]',
+    tiny: 'w-4 h-4 sm:w-5 sm:h-5 text-[7px] sm:text-[9px]',
+};
+
+// Question mark size classes per tier
+const QUESTION_CLASSES: Record<SizeTier, string> = {
+    normal: 'text-xl sm:text-2xl',
+    compact: 'text-base sm:text-xl',
+    tiny: 'text-sm sm:text-lg',
+};
+
+// Domino tile size classes per tier
+const DOMINO_TILE_CLASSES: Record<SizeTier, string> = {
+    normal: 'w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 p-1 sm:p-1.5',
+    compact: 'w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 p-0.5 sm:p-1',
+    tiny: 'w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 p-0.5 sm:p-1',
+};
+
+const DOMINO_DOT_CLASSES: Record<SizeTier, string> = {
+    normal: 'w-1.5 h-1.5 sm:w-2 sm:h-2',
+    compact: 'w-1 h-1 sm:w-1.5 sm:h-1.5',
+    tiny: 'w-1 h-1 sm:w-1 sm:h-1',
+};
+
 export default function PuzzleBoard({ puzzle, initialSolved = false, readOnly = false }: PuzzleBoardProps) {
     const [usedDominoes, setUsedDominoes] = useState<Set<number>>(() => {
         if (!initialSolved) return new Set();
@@ -63,6 +120,8 @@ export default function PuzzleBoard({ puzzle, initialSolved = false, readOnly = 
     const allIndices = puzzle.regions.flatMap(r => r.indices);
     const maxRow = Math.max(...allIndices.map(([r]) => r));
     const maxCol = Math.max(...allIndices.map(([, c]) => c));
+
+    const sizeTier = useMemo(() => getSizeTier(maxRow, maxCol), [maxRow, maxCol]);
 
     const cellToRegion = new Map<string, Region>();
     puzzle.regions.forEach(region => {
@@ -130,17 +189,14 @@ export default function PuzzleBoard({ puzzle, initialSolved = false, readOnly = 
     };
 
     const getRegionBadgeInfo = (region: Region): { row: number; col: number } | null => {
-        // Show badge for all types except 'empty'
-        // equals/unequal types don't have a target, but still need to show = or ≠
         if (region.type === 'empty') return null;
-        // For types that need a target value (sum, greater, less), check if target exists
         if ((region.type === 'sum' || region.type === 'greater' || region.type === 'less') && region.target === undefined) return null;
         const lastIdx = region.indices[region.indices.length - 1];
         return { row: lastIdx[0], col: lastIdx[1] };
     };
 
     return (
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
             {/* Puzzle Grid */}
             <div className="flex justify-center overflow-x-auto py-4">
                 <div className="relative inline-block">
@@ -149,13 +205,12 @@ export default function PuzzleBoard({ puzzle, initialSolved = false, readOnly = 
                             Array.from({ length: maxCol + 1 }).map((_, colIdx) => {
                                 const cellKey = `${rowIdx}-${colIdx}`;
                                 const region = cellToRegion.get(cellKey);
-                                if (!region) return <div key={cellKey} className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16" />;
+                                if (!region) return <div key={cellKey} className={CELL_CLASSES[sizeTier]} />;
                                 const colors = REGION_COLORS[region.type] || REGION_COLORS.empty;
                                 const revealed = revealedCells.get(cellKey);
                                 const badgeInfo = getRegionBadgeInfo(region);
                                 const showBadge = badgeInfo && badgeInfo.row === rowIdx && badgeInfo.col === colIdx;
 
-                                // Get cell background color - use domino color if revealed
                                 const cellBgStyle = revealed
                                     ? { backgroundColor: getDominoColorRevealed(revealed.dominoIdx, totalDominoes) }
                                     : {};
@@ -166,13 +221,13 @@ export default function PuzzleBoard({ puzzle, initialSolved = false, readOnly = 
                                             onClick={() => handleCellClick(rowIdx, colIdx)}
                                             style={cellBgStyle}
                                             disabled={readOnly}
-                                            className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 rounded-lg flex items-center justify-center transition-all ${readOnly ? '' : 'hover:scale-105'} shadow-sm ${revealed ? 'border-gray-700' : `border-dashed ${colors.bg} ${colors.border}`
+                                            className={`${CELL_CLASSES[sizeTier]} border-2 rounded-lg flex items-center justify-center transition-all ${readOnly ? '' : 'hover:scale-105'} shadow-sm ${revealed ? 'border-gray-700' : `border-dashed ${colors.bg} ${colors.border}`
                                                 }`}
                                         >
-                                            {revealed !== undefined ? <DotPattern dots={revealed.value} /> : <span className="text-xl sm:text-2xl font-bold text-gray-400">?</span>}
+                                            {revealed !== undefined ? <DotPattern dots={revealed.value} sizeTier={sizeTier} /> : <span className={`font-bold text-gray-400 ${QUESTION_CLASSES[sizeTier]}`}>?</span>}
                                         </button>
                                         {showBadge && (
-                                            <div className={`absolute -bottom-1.5 -right-1.5 w-6 h-6 sm:w-7 sm:h-7 ${colors.badge} text-white text-[10px] sm:text-xs font-bold rounded-full flex items-center justify-center shadow-lg transform rotate-45`}>
+                                            <div className={`absolute -bottom-1.5 -right-1.5 ${BADGE_CLASSES[sizeTier]} ${colors.badge} text-white font-bold rounded-full flex items-center justify-center shadow-lg transform rotate-45`}>
                                                 <span className="-rotate-45">{region.type === 'equals' ? '=' : region.type === 'unequal' ? '≠' : region.type === 'greater' ? `>${region.target}` : region.type === 'less' ? `<${region.target}` : region.target}</span>
                                             </div>
                                         )}
@@ -191,8 +246,8 @@ export default function PuzzleBoard({ puzzle, initialSolved = false, readOnly = 
                         <p className="text-base sm:text-lg text-gray-600 font-medium">Reveal by clicking a domino below OR a cell on the board</p>
                     </div>
 
-                    {/* Dominoes - With Rainbow Colors like Pips (Centered Flex Layout) */}
-                    <div className="flex flex-wrap justify-center gap-x-2 gap-y-4 sm:gap-4 px-2 max-w-4xl mx-auto">
+                    {/* Dominoes */}
+                    <div className="flex flex-wrap justify-center gap-x-1.5 gap-y-3 sm:gap-x-2 sm:gap-y-4 px-2 max-w-4xl mx-auto">
                         {puzzle.dominoes.map((domino, idx) => {
                             const isUsed = usedDominoes.has(idx);
                             const dominoColor = getDominoColor(idx, totalDominoes);
@@ -203,9 +258,9 @@ export default function PuzzleBoard({ puzzle, initialSolved = false, readOnly = 
                                     disabled={isUsed}
                                     className={`flex rounded-lg overflow-hidden transition-all shadow-md ${isUsed ? 'opacity-40 cursor-not-allowed ring-1 ring-gray-300' : 'hover:shadow-xl hover:scale-105 cursor-pointer ring-2 ring-gray-800'}`}
                                 >
-                                    <DominoTile dots={domino[0]} color={dominoColor} grayed={isUsed} />
+                                    <DominoTile dots={domino[0]} color={dominoColor} grayed={isUsed} sizeTier={sizeTier} />
                                     <div className="w-0.5 bg-gray-600" />
-                                    <DominoTile dots={domino[1]} color={dominoColor} grayed={isUsed} />
+                                    <DominoTile dots={domino[1]} color={dominoColor} grayed={isUsed} sizeTier={sizeTier} />
                                 </button>
                             );
                         })}
@@ -213,10 +268,10 @@ export default function PuzzleBoard({ puzzle, initialSolved = false, readOnly = 
 
                     {/* Clear and Solve Buttons */}
                     <div className="flex justify-center gap-4">
-                        <button onClick={handleClear} className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition">
+                        <button onClick={handleClear} className="px-5 py-2 sm:px-6 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition">
                             Clear
                         </button>
-                        <button onClick={handleSolveAll} className="px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-medium hover:from-indigo-600 hover:to-purple-600 transition shadow-md">
+                        <button onClick={handleSolveAll} className="px-5 py-2 sm:px-6 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-medium hover:from-indigo-600 hover:to-purple-600 transition shadow-md">
                             Solve All
                         </button>
                     </div>
@@ -226,25 +281,25 @@ export default function PuzzleBoard({ puzzle, initialSolved = false, readOnly = 
     );
 }
 
-function DotPattern({ dots }: { dots: number }) {
+function DotPattern({ dots, sizeTier }: { dots: number; sizeTier: SizeTier }) {
     const positions = DOT_POSITIONS[dots] || [];
     return (
-        <div className="grid grid-cols-3 grid-rows-3 w-8 h-8 sm:w-10 sm:h-10 gap-0.5">
+        <div className={`grid grid-cols-3 grid-rows-3 ${DOT_GRID_CLASSES[sizeTier]} gap-0.5`}>
             {Array.from({ length: 9 }).map((_, i) => {
                 const row = Math.floor(i / 3);
                 const col = i % 3;
                 const hasDot = positions.some(([r, c]) => r === row && c === col);
-                return <div key={i} className="flex items-center justify-center">{hasDot && <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-gray-900 rounded-full shadow-sm" />}</div>;
+                return <div key={i} className="flex items-center justify-center">{hasDot && <div className={`${DOT_CLASSES[sizeTier]} bg-gray-900 rounded-full shadow-sm`} />}</div>;
             })}
         </div>
     );
 }
 
-function DominoTile({ dots, color, grayed }: { dots: number; color: string; grayed: boolean }) {
+function DominoTile({ dots, color, grayed, sizeTier }: { dots: number; color: string; grayed: boolean; sizeTier: SizeTier }) {
     const positions = DOT_POSITIONS[dots] || [];
     return (
         <div
-            className="w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 p-1 sm:p-1.5"
+            className={DOMINO_TILE_CLASSES[sizeTier]}
             style={{ backgroundColor: grayed ? '#e5e7eb' : color }}
         >
             <div className="grid grid-cols-3 grid-rows-3 w-full h-full">
@@ -252,7 +307,7 @@ function DominoTile({ dots, color, grayed }: { dots: number; color: string; gray
                     const row = Math.floor(i / 3);
                     const col = i % 3;
                     const hasDot = positions.some(([r, c]) => r === row && c === col);
-                    return <div key={i} className="flex items-center justify-center">{hasDot && <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full shadow-sm ${grayed ? 'bg-gray-400' : 'bg-gray-900'}`} />}</div>;
+                    return <div key={i} className="flex items-center justify-center">{hasDot && <div className={`${DOMINO_DOT_CLASSES[sizeTier]} rounded-full shadow-sm ${grayed ? 'bg-gray-400' : 'bg-gray-900'}`} />}</div>;
                 })}
             </div>
         </div>

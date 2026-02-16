@@ -1,13 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 10);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     return (
-        <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-sm">
+        <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-xl shadow-md border-b border-gray-100' : 'bg-white/80 backdrop-blur-lg border-b border-gray-100/50'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16 sm:h-18">
                     <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
@@ -39,7 +46,7 @@ export default function Header() {
                         <Link href="/about" className="px-4 py-2 rounded-xl text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 transition font-medium">
                             About
                         </Link>
-                        <Link href="/solver" className="ml-2 px-5 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition shadow-md">
+                        <Link href="/solver" className="ml-2 px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition shadow-md hover:shadow-lg hover:scale-105">
                             Solve Now
                         </Link>
                     </div>
@@ -61,14 +68,14 @@ export default function Header() {
                 </div>
 
                 {/* Mobile Menu */}
-                {isOpen && (
-                    <div className="md:hidden py-4 border-t border-gray-100 animate-in slide-in-from-top-2 duration-200">
+                <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className="py-4 border-t border-gray-100">
                         <div className="flex flex-col gap-1">
                             <Link href="/today" onClick={() => setIsOpen(false)} className="px-4 py-3 rounded-xl text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 transition font-medium flex items-center gap-3">
-                                <span className="text-lg">🎯</span> Today's Answer
+                                <span className="text-lg">🎯</span> Today&apos;s Answer
                             </Link>
                             <Link href="/yesterday" onClick={() => setIsOpen(false)} className="px-4 py-3 rounded-xl text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 transition font-medium flex items-center gap-3">
-                                <span className="text-lg">📅</span> Yesterday's Answer
+                                <span className="text-lg">📅</span> Yesterday&apos;s Answer
                             </Link>
                             <Link href="/solver" onClick={() => setIsOpen(false)} className="px-4 py-3 rounded-xl text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 transition font-medium flex items-center gap-3">
                                 <span className="text-lg">🧩</span> Solver
@@ -82,17 +89,14 @@ export default function Header() {
                             <Link href="/contact" onClick={() => setIsOpen(false)} className="px-4 py-3 rounded-xl text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 transition font-medium flex items-center gap-3">
                                 <span className="text-lg">✉️</span> Contact
                             </Link>
-                            <Link href="/privacy" onClick={() => setIsOpen(false)} className="px-4 py-3 rounded-xl text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 transition font-medium flex items-center gap-3">
-                                <span className="text-lg">🔒</span> Privacy Policy
-                            </Link>
                             <div className="mt-3 px-4">
-                                <Link href="/solver" onClick={() => setIsOpen(false)} className="block w-full text-center py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold shadow-md">
+                                <Link href="/solver" onClick={() => setIsOpen(false)} className="block w-full text-center py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg transition">
                                     Solve Puzzle →
                                 </Link>
                             </div>
                         </div>
                     </div>
-                )}
+                </div>
             </div>
         </nav>
     );
