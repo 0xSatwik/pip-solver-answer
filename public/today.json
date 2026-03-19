@@ -732,39 +732,39 @@
   },
   "explanation": {
     "easy": {
-      "heading": "Warming Up With A Friendly Friday Grid",
-      "body": "Happy Friday, everyone! I hope you have a cozy drink ready because today's Pips puzzle was such a treat. I started with the easy grid, and right away, my eyes jumped to that sum region in the top right corner. It needed three cells—(0,4), (1,4), and (2,4)—to add up to ten. Since I had a [5,5] domino in my tray, it felt like the perfect anchor. I placed the [5,5] at (0,4) and (1,4), which meant the last cell at (2,4) had to be a zero to keep the sum at ten.\n\nFrom there, the bottom left gave me a huge hint with the greater than five rule at cell (3,0). Looking at my remaining pieces, the [6,0] domino was the only one that could satisfy that, so I tucked the 6 into (3,0) and the 0 into (2,0). This was great because it also checked off the empty constraint for (2,0). It is always so satisfying when two rules click together like that!\n\nFinally, I had to deal with the equals region across the middle. Since I had a [3,3] and a [3,5] left, I realized that if I put the [3,3] at (1,0) and (1,1), and the 3-side of my [3,5] at (1,2), all three cells would equal three. That left the 5-side at (2,2) and the final [0,0] domino to fill in (2,3) and (2,4). Everything fit perfectly, and it was a great way to wake up my brain."
+      "heading": "Warming Up With Our Morning Coffee",
+      "body": "I started today with a cozy cup of coffee and the easy grid, which felt like a nice gentle stretch for the brain. The first thing that jumped out at me was the cell at [3,0] which had to be greater than 5. Looking at our pile of dominoes, the only one that could possibly work was the [6,0]. I placed the 6 at [3,0] and its partner, the 0, at [2,0]. Since [2,0] was marked as an empty region, it felt like a perfect fit right off the bat.\n\nNext, I turned my attention to the top right corner where three cells needed to sum up to 10. With the [5,5] domino available, it seemed like a natural choice to use those big numbers there. I put one 5 at [0,4] and the other at [1,4]. That left just 0 more needed for the sum of 10 at [2,4]. Since [2,4] is paired with [2,3] in the solution, I used the [0,0] domino to fill that spot. After that, the equals region at [1,0], [1,1], and [1,2] was easy to finish using the [3,3] and [3,5] sets."
     },
     "medium": {
-      "heading": "Navigating The Middle Of The Road",
-      "body": "The medium puzzle today felt a bit more like a scavenger hunt. The first thing I noticed were those single-cell target regions. When you see a target sum of 6 at (2,3) and a target sum of 4 at (5,3), you know exactly what numbers need to go there. I looked at my dominoes and saw [3,4] and a couple of sixes in [0,6] and [6,6]. I held onto those for a second while I looked for a place to start building.\n\nI decided to tackle the bottom half first. The equals region at (6,2) and (6,3) was a good clue, especially since it sat right below the sum of 4. By placing the [3,4] domino vertically at (4,3) and (5,3), I got my 4 in the right spot. Then, looking at the sum of 3 needed for (5,1) and (5,2), I used the [2,5] and [0,1] pieces to balance things out. It took a little bit of shuffling, but once the bottom was set, the top fell into place.\n\nWhat really helped me finish was the equals constraint at (0,0), (1,0), and (1,1). I had the [5,5] and [6,6] dominoes left, and by placing them carefully, I was able to make sure those three cells all shared the same value. The medium level always tests my patience with those small overlapping areas, but it felt so good to see the whole board turn green!"
+      "heading": "Stepping Up the Pace with Some Equals Signs",
+      "body": "The medium puzzle today was a bit more of a challenge, but I found my rhythm by looking for the single-cell regions first. Specifically, the cell at [2,3] had to sum to 6 and the cell at [5,3] had to sum to 4. This is a great trick because it tells you exactly what number needs to be in those spots. I used the [0,6] domino to put the 6 at [2,3] and paired it with the 0 at [3,3] because that cell was part of an equals constraint.\n\nWorking through the middle was the trickiest part. I had to balance the equals region at [3,2] and [3,3] while also making sure the sum of 3 at [2,1] and [2,2] worked out. I ended up using the [2,2] domino across [3,2] and [2,2], which then helped me place the [3,4] domino to satisfy the sum of 6. By the time I got to the bottom rows, using the [6,6] domino for the equals constraint at [6,2] and [6,3] made everything else fall right into place."
     },
     "hard": {
-      "heading": "Tackling The Big Sum Six Challenge",
-      "body": "Wow, Rodolfo Kurchan really brought the heat today! This hard puzzle was basically a giant puzzle of sixes. Almost every single constraint was a sum of 6, which actually helps once you realize you are looking for specific pairs. I started by identifying all the single-cell regions that had to be 6, like (0,1), (6,1), (6,5), and (7,5). Once I knew those cells had to be sixes, I looked at which dominoes in my tray actually had a 6 on them, like [0,6], [2,6], [6,1], and [5,6].\n\nOne of the trickiest parts was the large region in the middle spanning (3,4), (3,5), (4,4), and (4,5) that had to sum to 6. With four cells to work with, there were a few ways to do it, but I had to save my bigger numbers for the single-cell spots. I ended up using smaller values like ones and twos there. It felt like a delicate balancing act! I actually hit a dead end halfway through because I used the [0,6] domino too early in the top corner, but once I swapped it for the [6,1], the rest of the path cleared up.\n\nCruising through the finish line involved double-checking the equals region at (3,1) and (4,1). I used the [3,3] domino there, which helped satisfy the sum of 6 for the neighboring cells at (3,0) and (4,0). It is rare to see a puzzle where one number is so dominant, but it made for a really unique solving experience today. If you got stuck, don't feel bad—this one was a real brain teaser!"
+      "heading": "Conquering the Hard Grid Mountain",
+      "body": "This hard puzzle really tested my patience! There were so many regions needing a sum of 6 that I felt like I was seeing double. I started by looking at the isolated sum regions at [0,1], [6,1], [6,5], and [7,5]. Each of these needed to be a 6. I carefully sorted through the dominoes that had a 6, like [0,6], [2,6], [6,1], and [5,6]. It was like a logic puzzle within a logic puzzle to see which 6 went where without blocking the equals regions.\n\nThe real breakthrough happened when I looked at the top left corner. The equals region at [0,0], [1,0], and [1,1] required three identical numbers. I tried using the [0,0] domino at [0,0] and [1,0], which left [1,1] needing to be 0 as well. This worked perfectly with the [6,0] domino placed nearby. Once that corner was settled, the rest of the dominoes like [5,4] and [2,5] started to find their homes in the remaining sum regions. It was a long road, but seeing that final checkmark was so satisfying!"
     },
-    "tips": "Always start by looking for regions that consist of only a single cell, as these tell you exactly what number must go there. Also, try to identify which dominoes are unique, like a [6,6] or [0,0], because they have very limited places they can fit when sum constraints are involved. If you get stuck, try working from the corners inward, as they usually have the fewest possible combinations.",
-    "learned": "Today's puzzles really showed me how a single repeated number can change the whole vibe of a grid. In the hard puzzle, the constant target of six meant I had to be extremely careful about where I placed my high-value dominoes early on. I also realized that equals regions are great for narrowing down which doubles, like [3,3] or [5,5], you should use versus using two different dominoes that happen to have the same number on one side.",
+    "tips": "Try to look for regions that consist of only a single cell first because they give you a definite value to work with. Also, always check your available dominoes before placing a number to make sure you actually have a pair that fits the two cells you are looking at. If you get stuck, look for the largest numbers like 5 or 6 since they usually have fewer placement options in sum regions.",
+    "learned": "Today I really learned the value of working from the edges inward, especially when there are multiple sum constraints with the same target number. It’s easy to get overwhelmed by all the 6s on the hard map, but focusing on how the dominoes bridge between regions is the key to unlocking the whole board.",
     "faqs": [
       {
-        "question": "How do I solve the NYT Pips puzzle for March 20?",
-        "answer": "Focus on the target sum regions first. In the easy puzzle, use the [5,5] for the sum of 10. In the hard puzzle, identify all the cells that must be 6 due to the single-cell sum regions."
+        "question": "What are the basic rules of the NYT Pips puzzle?",
+        "answer": "In Pips, you place a set of dominoes onto a grid so that every cell is covered. Each domino consists of two numbers, and you must follow the rules in each colored region, such as making sure numbers are equal or add up to a specific sum."
       },
       {
-        "question": "What does the Equals constraint mean in Pips?",
-        "answer": "The Equals constraint means that all cells within that highlighted region must have the exact same number of pips."
+        "question": "What does an empty cell region mean in Pips?",
+        "answer": "An empty region usually means there are no specific mathematical constraints on those cells, but they still must be covered by a domino. They often act as flexible spots to place the second half of a domino that is satisfying a rule elsewhere."
       },
       {
-        "question": "What is the best strategy for Hard Pips puzzles?",
-        "answer": "Look for the most restrictive constraints. Single-cell sums or very small sums with large regions are the best places to start because they limit your domino choices significantly."
+        "question": "Can I use the same domino twice in one puzzle?",
+        "answer": "No, you are given a specific set of unique dominoes at the start of each puzzle, and each one can only be used once to cover two adjacent cells."
       },
       {
-        "question": "Can I reuse dominoes in the same Pips puzzle?",
-        "answer": "No, you can only use each domino provided in the tray once. If you find yourself needing a piece you already placed, you'll need to rethink your previous moves!"
+        "question": "How do you solve the greater than constraint in Pips?",
+        "answer": "The greater than symbol points toward the smaller number. For example, if a region says greater than 5, you must place a number like 6 in that specific cell."
       },
       {
-        "question": "What does a Greater Than region mean?",
-        "answer": "A Greater Than region (like the one in today's Easy puzzle) means the sum of the pips in that region must be higher than the target number shown."
+        "question": "Is there always only one solution to the NYT Pips puzzle?",
+        "answer": "Yes, like most NYT puzzles, Pips is designed to have a single unique solution that can be reached through logic without any guessing."
       }
     ]
   }
