@@ -795,39 +795,39 @@
   },
   "explanation": {
     "easy": {
-      "heading": "Warming Up With a Quick Coffee Break",
-      "body": "Starting off with the easy puzzle today felt like a nice way to wake up. I immediately looked for the smallest targets first. The region at cell 0,1 has a target sum of zero, and since it is just a single square, I knew that spot had to be a zero. Right next to it at 0,2, there was another single-cell region with a target of five, which meant that square had to be a five. Having those two fixed points made things so much simpler.\n\nI looked at my dominoes and saw the 2,0 and the 3,5 pairs. I placed the 2,0 domino so the zero end filled that 0,1 spot, which put the two at cell 1,1. Then I used the 5,1 domino to connect the five at 0,2 to its neighbor. The region at 1,0 and 1,1 needed to sum to seven, and since I already placed a two at 1,1, the square at 1,0 had to be a five. It all clicked into place once those single-cell spots were filled in."
+      "heading": "Starting My Tuesday with a Smile",
+      "body": "Hey there, fellow puzzle lovers! I just finished the easy Pips grid and it was a delightful way to wake up. I started by looking for the zero target at cell 0,1. Since a sum of zero is pretty rare, I knew I needed a domino with a zero on it. Looking at the pile, the 2,0 domino was the only choice. I placed the zero side on 0,1 and the two side on 1,1. This was a great start because it immediately helped me solve the sum region for 1,0 and 1,1.\n\nSince the target for that bottom left region was 7 and I already had a 2 in cell 1,1, I knew cell 1,0 had to be a 5. I reached for the 5,1 domino and put the 5 side on 1,0. That left the 2,2 and 3,5 dominoes for the right side of the board. The region for 1,2 and 1,3 needed to sum to 4, so the 2,2 domino was the perfect fit there. Finally, the 3,5 domino fell right into place on the top right, with the 5 filling the target for cell 0,2 and the 3 sitting quietly in the empty spot at 0,3. It all clicked together so smoothly!"
     },
     "medium": {
-      "heading": "Finding the Rhythm in the Middle",
-      "body": "The medium puzzle by Rodolfo Kurchan had a few more moving parts, but the equals constraint at 0,2 and 0,3 was the key for me. I spent a minute looking at the dominoes 1,5 and 3,5 and 5,4. I realized that for the regions requiring a sum of ten, like the one at 0,1 and 1,1, I needed high-value numbers. Since I had a 5,4 and a 3,6 domino available, I had to be careful where I tucked those larger pips.\n\nI found that the bottom of the grid was the trickiest part. The sum regions for ten at 1,2 and 2,2 and another at 3,2 and 3,3 really restricted which dominoes could go where. I ended up placing the 3,6 domino across the 3,1 and 3,2 cells. This helped satisfy the sum of ten region at the bottom. The empty cells at 2,1 and 3,1 acted as nice buffers that helped me orient the dominoes without overthinking the math too much."
+      "heading": "Getting Into the Middle of the Action",
+      "body": "The medium puzzle today felt like a nice step up, especially with that equals constraint in the top row. I spent a little time staring at cells 0,2 and 0,3 before I realized they had to hold the same value. I decided to focus on the sums of 10 first, as those usually limit your options to high-value pips. I noticed the region involving 3,2 and 3,3 needed to hit 10, which meant I needed two high numbers. Using the 1,5 and 5,4 dominoes across the bottom and middle really helped narrow things down.\n\nThe breakthrough happened when I looked at the sum of 2 for cells 0,0 and 1,0. I used the 1,1 domino there, which freed up the 2,1 domino to be used elsewhere. It took a little bit of shuffling to make sure the equal values at the top didn't break the sum of 10 at 1,2 and 2,2. Once I realized the 3,6 domino had to be part of one of those big sums, the rest of the pieces like the 0,5 and 3,5 dominoes found their homes. It felt like balancing a scale until everything was perfectly level."
     },
     "hard": {
-      "heading": "Tackling the Tuesday Giant",
-      "body": "Today's hard puzzle was a real brain teaser with fifteen different dominoes to keep track of. I started by scanning for those tiny target sums. Seeing a sum of zero for the region covering 1,2 and 1,3 was a huge hint because it meant both of those squares had to be zeros. I also noticed single squares like 0,0 and 0,5 only needed a sum of one, which helped me anchor the corners of the board early on.\n\nThe real breakthrough happened in the middle of the grid. There is a large, snake-like region covering cells 2,1, 2,3, 3,1, 3,2, and 3,3 that needs to sum to ten. That felt intimidating at first, but once I had the zeros and ones placed around the edges, the options for those middle squares started to disappear. I had to use the 3,4 and 2,5 dominoes carefully to make sure the sums balanced out without using the same domino twice. It took a little bit of erasing, but seeing the whole board filled with those pips is so satisfying."
+      "heading": "Conquering the Grid Giant",
+      "body": "Wow, the hard puzzle today was a real brain-buster! With fifteen different dominoes to place, I felt like a detective looking for clues. The first thing that caught my eye was the target of 0 for the region covering 1,2 and 1,3. That meant I needed zeros in both those spots. I started looking for dominoes that could provide those zeros, like the 0,1 or 0,2 pairs. The high number of single-cell targets like 0,0 and 0,5 being 1 also acted as great anchors. I placed the 0,1 domino at 0,0 and 0,1 early on to satisfy that initial sum.\n\nThe real challenge was the large region in the middle that needed to sum to 10 across five different cells. I had to be careful not to use up my high pips too early. I found a path through the bottom left using the 4,1 domino to hit the sum of 8 at 3,0 and 4,0. The turning point was finally figuring out how to fit the 4,5 and 3,5 dominoes into the right side to satisfy those 10-point sums. It was a lot of trial and error, but seeing that final domino slide into place was so satisfying. If you are stuck on this one, definitely focus on the zeros and ones first!"
     },
-    "tips": "Always start by looking for the smallest possible sums or single-cell regions because they act as anchors for the rest of the board. If you see an equals sign between two cells, try to match them up with ends of dominoes you haven't used yet. Also, keep a mental checklist of the dominoes you have left so you don't accidentally try to use a pair that is already on the board.",
-    "learned": "I learned today that large regions with small sums are actually easier to solve than they look because they force you to use a lot of zeros and ones. It really changes how you look at the board when you stop seeing numbers and start seeing how much space a domino can take up.\n\nI also realized that the empty cells are just as important as the numbered ones. They give you a place to put the extra half of a domino that might not fit into a specific sum region, which was a lifesaver in the medium puzzle today.",
+    "tips": "Try to find the regions with the smallest target sums first, like zeros or ones, as they have the fewest possible combinations. Always keep an eye on which dominoes you have left in your tray so you do not accidentally plan for a number you have already used up.",
+    "learned": "Today I really learned the value of the empty cells as relief valves for high-value dominoes. When a region doesn't have a target sum, it is the perfect place to tuck away a large number that would otherwise break your other sums. I also noticed that in the hard puzzle, the 0,0 and 1,1 targets were essential for locking in the orientation of the first few dominoes.",
     "faqs": [
       {
-        "question": "How do you solve NYT Pips puzzles?",
-        "answer": "You solve them by placing dominoes on the grid so that the pips in each colored region add up to the target number shown. You must use each domino from the provided set exactly once."
+        "question": "What are the rules for NYT Pips?",
+        "answer": "In Pips, you place a set of dominoes onto a grid so that the pips in each colored region add up to the target number shown. Some cells are empty and do not have a target sum, while others might have comparison symbols like equals or greater than."
       },
       {
-        "question": "What does the equals sign mean in Pips?",
-        "answer": "An equals sign between two cells means that those two squares must contain the same number of pips, regardless of which dominoes they belong to."
+        "question": "Can I use the same domino twice in a Pips puzzle?",
+        "answer": "No, you must use each domino from the provided set exactly once to fill the grid completely."
       },
       {
-        "question": "Are there any duplicate dominoes in the NYT Pips game?",
-        "answer": "No, every domino in the list is unique for that specific puzzle. You have to find the one right spot for each pair."
+        "question": "What does a zero target mean in Pips?",
+        "answer": "A target of zero means the pips in that specific cell or region must add up to zero, which usually means the domino side placed there must be a blank or zero."
       },
       {
-        "question": "What is the best strategy for the hard Pips puzzle?",
-        "answer": "Start with the regions that have very low sums like zero or one, or very high sums. These have the fewest possible combinations and will help you narrow down your choices for the trickier middle sections."
+        "question": "How do I solve the equals sign regions in Pips?",
+        "answer": "An equals sign between two cells means that both cells must contain the same number of pips, regardless of which dominoes those pips belong to."
       },
       {
-        "question": "Do dominoes have to stay within the colored regions?",
-        "answer": "No, a single domino can cross over the boundaries of different regions. Only the total number of pips inside the region matters for the sum."
+        "question": "Is there a trick to the hard NYT Pips puzzles?",
+        "answer": "The best strategy for hard puzzles is to look for the most restricted areas first, such as very small sums or very large sums, and use those to narrow down where your dominoes can fit."
       }
     ]
   }
