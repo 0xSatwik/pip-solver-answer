@@ -735,39 +735,39 @@
   },
   "explanation": {
     "easy": {
-      "heading": "Warming Up With A Morning Brew",
-      "body": "Starting today's easy puzzle was like taking that first sip of coffee—everything just clicked into place once I woke up. I began by looking at the constraint for cell 2,5 which had to be greater than five. Since the only number bigger than five in a domino set is six, I knew right away that cell was a six. That led me to look at its neighbor at 1,5 which was part of an equals region. It made sense to pair them up using one of the dominoes with a six in it. I settled on the 6,6 domino for that spot, which left me feeling pretty confident about the right side of the grid.\n\nNext, I turned my attention to the top left. Cell 0,1 had a rule that it must be less than two, which really narrows things down. I tried out the 2,1 domino there, putting the one in that restricted spot. This worked out perfectly because it lined up with the equals region across the first column. Once those small numbers were out of the way, the middle section with the 3,3 or 2,2 dominoes became much clearer. It is always a relief when the easy puzzle lives up to its name and lets you build some momentum for the harder ones later on."
+      "heading": "Warming Up With Some Simple Matches",
+      "body": "Starting off with the easy grid today, I first looked at the right side of the board. The constraint for cell 2,5 said it had to be greater than 5, which immediately told me it had to be a 6. Since the domino at 1,5 and 2,5 was part of a pair, and cell 1,5 had an equals constraint with 0,5, I could see a pattern forming. I used the 6,6 domino for that 1,5 and 2,5 spot, which then forced cell 0,5 to also be a 6 because of that equals rule. \n\nOn the other side of the board, I noticed cell 0,1 had to be less than 2. That meant it could only be a 0 or a 1. Looking at our domino pile, the 2,1 domino was the perfect fit to connect 0,0 and 0,1. From there, it was just a matter of placing the remaining pieces like the 3,5 and the 2,2. The equals region involving 1,2 and 1,3 was the last piece of the puzzle, and once those were set, everything clicked into place beautifully."
     },
     "medium": {
-      "heading": "Squeezing Through The Middle Ground",
-      "body": "The medium puzzle today from Rodolfo Kurchan really made me stop and think for a second. The layout had a few empty squares at 3,0 and 3,3 which act like roadblocks, forcing you to work around them. I found the best way in was focusing on the equals region at 3,1 and 3,2. Since those two had to be the same, I looked for a double domino and decided to use the 1,1 there. It felt like a safe bet and helped stabilize the bottom row while I figured out the rest of the board.\n\nThe trickiest part was definitely the cluster of equal cells at 1,3, 1,4, and 2,3. When you have three or more cells that all have to match, it really limits your domino choices. I had to play around with the 3,3 domino and the 2,4 domino to see how they would fit into the neighbors. I eventually realized that the less than two constraint at 0,3 was the key to the whole puzzle. By placing a one there, the rest of the dominoes like the 1,2 and 0,2 fell right into place like a game of Tetris. It was a nice little challenge that required a bit more foresight than the easy one."
+      "heading": "Navigating the Midday Maze",
+      "body": "The medium puzzle today felt a bit more like a jigsaw. I started by identifying the empty spots at 3,0 and 3,3. Since these are essentially zeros, I looked for dominoes in my tray that had a 0 on one side. I had the 0,1 and 0,2 dominoes ready to go. I placed the 0,1 domino at 3,0 and 2,0, and used the 0,2 for the 3,3 and 2,3 connection. This immediately helped define the boundaries for the rest of the pips.\n\nNext, I tackled the equals region in the center at 1,3, 1,4, and 2,3. Since I already knew 2,3 was a 2, those other two cells had to be 2s as well. This led me to the greater than 2 constraint at 0,4. With a few 2s already on the board, I realized the 2,4 domino had to fit there to satisfy the rule. The rest of the board, like the 3,3 domino at 3,1 and 3,2, fell right into line once the zeros and twos were settled."
     },
     "hard": {
-      "heading": "Tackling The Big Grid Boss",
-      "body": "Wow, the hard puzzle today was quite the marathon! With thirteen dominoes to place and a much larger grid, I really had to take my time. The breakthrough moment for me was noticing the massive equals regions near the bottom. Specifically, the block of four cells at 8,2, 8,3, 9,2, and 9,3 all had to be identical. That is a huge hint because it usually means you are looking for multiple dominoes with the same high or low values. I ended up using parts of the 6,6 and 5,6 dominoes to fill in those matching zones, which cleared up a lot of the visual clutter.\n\nI did hit a bit of a dead end in the middle when I tried to force the 4,3 domino into the sum region of four. I realized that the sum rule at 1,2 and 2,2 was much easier to solve if I used the 1,2 domino itself or maybe a zero and a four. Once I corrected that mistake and worked through the empty squares that Rodolfo sprinkled throughout the center, the path to the finish line became clear. It felt great to finally connect the 0,0 and the 2,3 dominoes at the very end. This one definitely tested my patience, but the satisfaction of seeing all those constraints turn green was well worth the effort."
+      "heading": "Conquering the Grid Giant",
+      "body": "Wow, the hard puzzle really made me work for it today! The breakthrough came when I focused on the sum constraints. I saw that cells 1,2 and 2,2 needed to sum to 4, and similarly, cell 1,4 had its own sum target of 4. I spent a good few minutes testing different combinations before realizing how the empty cells at 0,2 and 1,3 acted as anchors. By placing the 0,2 domino across 0,2 and 1,2, I satisfied the empty rule and set up the sum perfectly.\n\nThe bottom of the grid was the real test. There were two separate sum targets of 3 at 9,0 and 9,4. I had to be very careful with the 0,3 domino to make sure it didn't conflict with the large equals regions at 8,2 and 9,2. I found that using the 6,6 and 5,6 dominoes in the middle helped clear up the clutter. Once I realized the 0,0 domino had to sit at 1,0 and 1,1 to satisfy that less than 4 rule and the empty spot, the entire bottom row finally aligned."
     },
-    "tips": "Try to start with the most restrictive constraints first, like the less than or greater than boxes, because they usually only have one or two possible numbers. I also find it helpful to look for the empty squares early on since they tell you exactly where a domino cannot go. If you get stuck, look for equals regions that span across three or four cells, as those are usually the anchors that hold the whole solution together.",
-    "learned": "Today I learned how much empty squares can change the flow of a Pips puzzle. They really act as anchors that define the shape of the remaining dominoes. I also noticed that in the hard puzzle, the large blocks of equal cells are often the easiest way to start if you have double dominoes like 6,6 or 0,0 available.\n\nAnother fun takeaway was seeing how Ian Livengood and Rodolfo Kurchan have different styles. Ian's easy puzzle felt very linear and logical, while Rodolfo's medium and hard puzzles used more negative space to make you think about the geometry of the dominoes. It is cool to see how different designers approach the same set of rules.",
+    "tips": "Always start by looking for the most restrictive constraints first, like a cell that has to be greater than 5 or an empty spot that must be 0. Use the empty cells as anchors to decide which direction a domino must face, and if you get stuck, look for large regions where multiple cells must be equal, as these limit your domino choices the most.",
+    "learned": "Today I really noticed how the empty constraints can act as a wall that funnels your choices. In the hard puzzle, the way the zeros were scattered made it impossible to place the larger dominoes like the 6,6 anywhere but the center, which is a neat trick by the designer to narrow down the possibilities early on if you spot it.",
     "faqs": [
       {
-        "question": "How do you solve the NYT Pips puzzle today?",
-        "answer": "Start by identifying cells with specific limits, like less than or greater than constraints. Use the provided dominoes list to see which numbers are available and match them to the equals or sum regions on the board."
+        "question": "What does the empty constraint mean in NYT Pips?",
+        "answer": "The empty constraint indicates that the specific cell must contain zero pips, which corresponds to the blank side of a domino."
       },
       {
-        "question": "What does the equals region mean in Pips?",
-        "answer": "An equals region is a group of two or more cells that must all contain the same number of pips. This usually requires using doubles or matching ends of different dominoes."
+        "question": "How do you solve the sum constraints in Pips?",
+        "answer": "Sum constraints tell you the total number of pips that must be present across all cells within that highlighted region. You have to find a combination of domino halves that add up to that specific target number."
       },
       {
-        "question": "Are there any tricks for the hard NYT Pips puzzle?",
-        "answer": "Focus on the largest regions first. In the hard version, look for sum constraints or large equal blocks as they narrow down your domino pool the fastest. Also, pay attention to the empty cells which act as borders."
+        "question": "Can I reuse dominoes in the same Pips puzzle?",
+        "answer": "No, you must use each domino from the provided set exactly once to fill the grid completely."
       },
       {
-        "question": "Who created the NYT Pips puzzle for April 14 2026?",
-        "answer": "The easy puzzle was constructed by Ian Livengood, and the medium and hard puzzles were designed by Rodolfo Kurchan."
+        "question": "What is the best strategy for the hard NYT Pips puzzle?",
+        "answer": "Focus on the smallest regions and the most extreme constraints first, like sums or greater than/less than rules, as they have the fewest possible solutions."
       },
       {
-        "question": "Can dominoes be placed diagonally in Pips?",
-        "answer": "No, dominoes must be placed either horizontally or vertically to cover two adjacent cells, just like in a traditional game of dominoes."
+        "question": "Are the dominoes in Pips always standard sets?",
+        "answer": "Pips usually provides a specific list of dominoes for each puzzle, which might be a subset of a standard double-six set or include unique pairings depending on the grid size."
       }
     ]
   }
