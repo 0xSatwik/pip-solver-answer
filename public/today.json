@@ -745,40 +745,40 @@
   },
   "explanation": {
     "easy": {
-      "heading": "A Breezy Morning Start",
-      "body": "I started today's session with a nice cup of coffee and the easy puzzle, which was a lovely way to wake up the brain. The first thing that caught my eye was the small sum target of 1 at cell (3,1). In a game like Pips, a sum of 1 is a huge gift because it really limits what can go there. I quickly looked at my dominoes and saw the [4,1] which seemed like a great fit for the area near (3,1) and (3,2). \n\nAnother helpful spot was the sum of 6 at (0,2) and (1,2). I had the [2,4] domino in my tray, and since 2 plus 4 equals 6, it was a perfect match. I also had to keep an eye on those empty spots at (0,3) and (2,3). They act like little roadblocks that help you figure out where the dominoes cannot be fully placed. By the time I placed the [3,5] domino across the bottom right, the whole grid just clicked together beautifully. It is all about finding those small sum anchors first!",
-      "medium": {
-        "heading": "Finding a Good Rhythm",
-        "body": "The medium puzzle felt a bit more like a dance. The biggest challenge was definitely the sum of 10 at (3,2) and (3,3). Since we are working with pips, you know you need some of the highest values available. Looking at the domino list, the [4,6] was the obvious choice to hit that target. Once I got that big guy in place, I turned my attention to the equals region spanning (3,0), (3,1), and (4,1). \n\nHaving three cells that all must share the same value is a big constraint. It forces you to look at how your dominoes are oriented. I found that using the [3,2] and [3,4] dominoes around that area helped satisfy the equals constraint while keeping the sums in check. The most satisfying part was finally fitting the [0,4] domino into (0,1) and (0,2). It felt like the last piece of a jigsaw puzzle. If you get stuck on this one, I recommend focusing on the longest equals chains first, as they dictate so much of the board's layout."
+      "heading": "Warming Up with a Morning Brew",
+      "body": "Solving today's easy puzzle was like catching up with an old friend. I started by looking for the most obvious clues, and the sum target of 1 in cell 3,1 was a perfect place to begin. Since that cell had to be a 1, and it was part of a domino paired with 3,2, I quickly realized I was looking at the 4,1 domino. This meant cell 3,2 had to be a 4. Because 3,2 and 3,3 were linked by an equals sign, 3,3 also became a 4, which helped me place the 3,4 domino in the bottom right corner.\n\nFrom there, the rest of the board started to make sense. I moved over to the left side where cell 2,0 had a sum target of 4. Since it was a single-cell region, it was an automatic 4. That cell was paired with 2,1 in a domino, and looking at my remaining pieces, the 2,4 domino fit perfectly there. That gave me a 2 for cell 2,1, and the equals sign between 2,1 and 2,2 meant cell 2,2 was also a 2.\n\nThe final piece of the puzzle was the sum target of 6 for cells 0,2 and 1,2. Since I already had a 2 in cell 2,2 and it was paired with 1,2 as part of the 0,1 domino, I knew 1,2 had to be 4 to reach that sum of 6 with cell 0,2. It was a really satisfying flow that wrapped up quickly once those first few numbers were in place."
+    },
+    "medium": {
+      "heading": "Finding the Rhythm in the Medium Grid",
+      "body": "The medium puzzle today really made me stop and think, especially with those overlapping sum targets of 6 at the top. I found my way in by looking at the triple equals constraint for cells 3,0, 3,1, and 4,1. Knowing those three had to be identical really limited my options. I also noticed the sum of 10 for cells 3,2 and 3,3. In a game of Pips, 10 is a high number, so I knew I needed some of my larger dominoes like the 4,6 or 5,5 to make that work.\n\nI decided to test out the 4,6 domino for that sum of 10. Once I placed the 6 in cell 3,3 and the 4 in cell 3,2, the dominoes around it started to fall into place. The 1,3 and 2,3 equals sign was a big help too. I realized that if 3,3 was a 6, and it was paired with 2,3, then 2,3 and 1,3 both had to be 4. This eventually led me back to the top of the grid where I had to balance those two sums of 6.\n\nThe trickiest part was definitely the bottom left where the empty square at 4,2 lived. Since 4,2 was empty, the domino paired with it only contributed its value from cell 4,1. Matching that up with the 5,6 domino and the 3,5 domino took a little bit of shuffling, but once the 6 landed in cell 2,0 to satisfy that sum region, everything else lined up beautifully. It felt like solving a little logic knot!"
+    },
+    "hard": {
+      "heading": "Conquering the Hard Level Final Boss",
+      "body": "Wow, the hard puzzle today was a real journey! When I first saw those long chains of equal signs, I almost spilled my coffee. I decided to tackle the top row first, where cells 0,0 through 0,3 all had to be the same value. I eventually deduced they all had to be 0, which let me place the 0,0 and 1,0 dominoes right at the start. That gave me a solid anchor to work from.\n\nThe real challenge was the long vertical chain of equals signs running from cell 2,4 all the way down to 6,4. This five-cell chain acted like the spine of the puzzle. By comparing the available dominoes like 4,4 and 3,4, I figured out that these cells all had to be 4. This move was the big breakthrough I needed. It allowed me to place the 4,1 and 4,5 dominoes nearby and finally make sense of the sum target of 5 in the bottom right corner.\n\nI did hit a bit of a dead end near the bottom left where cells 6,2, 6,3, 7,0, 7,1, and 7,2 were all tied together by an equals sign. I had to be really careful not to use up a domino I needed elsewhere. Once I realized those five cells were all 1, the remaining high-value dominoes like 5,6 and 5,5 found their spots in the 8-sum regions. It was a complex dance of numbers, but finishing that last corner felt absolutely amazing."
+    },
+    "tips": "Try to find the smallest sum regions or the longest equals chains first because they give you the most information with the least amount of guessing. Also, remember to keep track of which dominoes you have already used so you do not accidentally try to use the same pair twice.",
+    "learned": "Today I learned that empty cells are actually a hidden blessing because they simplify the math for the domino they are part of. I also realized that even the most intimidating equals chains are just a series of small steps; once you find the first number, the rest follow like magic.",
+    "faqs": [
+      {
+        "question": "How do you play the NYT Pips puzzle?",
+        "answer": "You place dominoes on a grid to satisfy various regional constraints like sums, equal values, or greater-than signs. Each domino can only be used once, and some cells might be designated as empty."
       },
-      "hard": {
-        "heading": "The Ultimate Logic Test",
-        "body": "If you are looking for a challenge, the hard puzzle today definitely delivers. The grid was covered in these long equals regions that felt a bit intimidating at first. Specifically, that five-cell chain running from (2,4) all the way down to (6,4) was the puzzle's backbone. When you have five cells that all need to be the same number, you have to be very careful about which dominoes you use so you do not run out of matching values. \n\nI found my breakthrough near the bottom with the sum of 8 at (5,0) and (6,0). I tried a few combinations but the [3,5] domino ended up being the key. From there, I could trace the logic up through the other equals regions. There were a few moments where I thought I had hit a dead end, especially with the [5,6] and [4,6] dominoes, but shifting them slightly to satisfy the sum of 5 at (7,3) and (7,4) fixed everything. It is a bit like a row of dominoes falling in real life—once you get that first big chain right, the rest of the board follows suit. Take your time with this one and do not be afraid to backtrack if the numbers stop matching up!"
+      {
+        "question": "What does the equals sign mean in Pips?",
+        "answer": "The equals sign indicates that all cells within that specific highlighted region must contain the exact same number of pips or dots."
       },
-      "tips": "Try to look for the smallest or largest sum targets first because they have the fewest possible combinations. Also, pay close attention to the equals regions that involve three or more cells, as these will usually tell you exactly which numbers you need to save for those spots.",
-      "learned": "Today I learned just how much the empty cells can help narrow down your choices. They might seem like they are just in the way, but they actually act as vital clues for where a domino must end. I also realized that long equals chains are actually your best friend because they limit the pool of usable dominoes very quickly.",
-      "faqs": [
-        {
-          "question": "How do you solve the sum regions in NYT Pips?",
-          "answer": "You solve them by placing domino ends into the highlighted cells so that the total number of dots equals the target number shown in that region."
-        },
-        {
-          "question": "What does an empty target cell mean in the Pips puzzle?",
-          "answer": "An empty target means that the cell is part of a region that does not have a specific sum or equality rule, often serving as a space that must be filled by a domino end without affecting a total."
-        },
-        {
-          "question": "What is the best strategy for Equals constraints in Pips?",
-          "answer": "The best strategy is to look at your available dominoes for pairs or doubles. Since every cell in an equals region must have the same number of dots, you need dominoes that can provide those matching values in a row."
-        },
-        {
-          "question": "Can dominoes be placed diagonally in NYT Pips?",
-          "answer": "No, dominoes can only be placed horizontally or vertically to cover two adjacent cells in the grid."
-        },
-        {
-          "question": "What should I do if I run out of dominoes before the grid is full?",
-          "answer": "If you run out of dominoes or cannot fit the remaining ones, it usually means one of your earlier placements is incorrect. Try clearing the most recent dominoes and looking for a different way to satisfy the sum or equals constraints in that area."
-        }
-      ]
-    }
+      {
+        "question": "What are some tips for solving hard Pips puzzles?",
+        "answer": "Focus on the long chains of equals signs and large sum targets first. These often have very few possible combinations and act as anchors for the rest of the grid."
+      },
+      {
+        "question": "Can dominoes be placed diagonally in NYT Pips?",
+        "answer": "No, dominoes are always placed either horizontally or vertically across two adjacent cells."
+      },
+      {
+        "question": "How do empty cells work in Pips?",
+        "answer": "An empty cell is part of a domino but has a value of zero for sum constraints. It basically means only one half of that domino is contributing a value to the puzzle logic."
+      }
+    ]
   }
 }
