@@ -700,39 +700,43 @@
   },
   "explanation": {
     "easy": {
-      "heading": "Warming Up With Some Simple Math",
-      "body": "Today’s easy puzzle was a lovely way to wake up the brain. I started by looking for the most restrictive spots, and that sum target of 2 at cell [0,4] jumped out at me immediately. Since it was paired with cell [1,4], which had to be less than 4, I looked at my dominoes and realized the [2,3] domino was the perfect fit. Putting the 2 in the sum spot and the 3 in the less-than spot worked like a charm.\n\nFrom there, I noticed the equal signs. Cells [1,1] and [1,2] had to match, as did [1,3] and [2,3]. Since I had already used the 3, I tried the [5,5] double domino for the [1,3] and [2,3] pair, which made them both 5. That left me with a few more spots to fill, including a greater-than-4 constraint at [0,0]. Using the [3,5] domino there, with the 5 sitting on the constraint, felt like the right move to wrap things up quickly."
+      "heading": "Starting the Day with a Quick Win",
+      "body": "Today's easy puzzle was such a nice way to wake up with my morning coffee. I started by looking for the most obvious clues, like that single-cell sum target of 2 at cell (2,1). Since it was part of a domino covering (1,1) and (2,1), I knew I needed a tile with a 2 on it. I eventually realized the [6,2] domino fit perfectly there, making cell (1,1) a 6.\n\nThat was a huge help because cell (1,1) had an equals constraint with cell (1,2). Since I had just figured out (1,1) was 6, I knew (1,2) had to be 6 too! Looking at my remaining tiles, the [0,6] domino was the only one left that could fill the (0,2) and (1,2) spots. It is always so satisfying when one piece of the puzzle makes the next two or three fall right into place.\n\nI finished up by placing the [5,5] double for the equals constraint at cells (1,3) and (2,3). The [3,5] domino worked for the greater than constraint at (0,0) because 5 is obviously bigger than 4. The very last piece was the [2,3] domino, which fit the sum target of 2 at (0,4) and the less than 4 rule at (1,4) perfectly. It felt great to see the whole grid fill up without any hiccups!"
     },
     "medium": {
-      "heading": "Connecting the Dots in the Middle",
-      "body": "The medium puzzle felt like a big logic chain today. The breakthrough for me was the sequence of equal constraints. I saw that [0,2] had to equal [1,2], and [2,2] had to equal [2,3], which also had to match up with [1,3] and [1,4]. It felt like a row of falling dominoes! I started at [2,1], which had a sum target of 0. That’s a huge hint because only a 0 can go there. I used the [2,0] domino, putting the 0 at [2,1] and the 2 at [1,1].\n\nOnce [1,1] was a 2, the sum target of 7 for [0,1] and [1,1] meant [0,1] had to be a 5. I paired that with the 1 from the [5,1] domino in the empty cell at [0,0]. The rest of the puzzle fell into place once I used the [3,3] domino for the [0,2] and [1,2] equality. It’s all about finding that one anchor point, like that zero, and letting the math lead you the rest of the way."
+      "heading": "Getting into the Groove",
+      "body": "The medium puzzle definitely stepped things up a bit! The anchor for me was the sum constraint at (0,1) and (1,1), which had to add up to 7. I also noticed that cell (2,1) needed to be a 0 because of its single-cell sum target. This meant the domino at (1,1) and (2,1) had to have a 0, so I used the [2,0] tile. That made (1,1) a 2, which meant (0,1) had to be 5 to hit that 7 total.\n\nOnce (0,1) was set as 5, I looked for a domino starting with 5 to fill the top left. The [5,1] tile fit into cells (0,1) and (0,0) perfectly. Then I tackled the middle section. The equals constraint between (0,2) and (1,2) was solved using the [3,3] double. It is always a relief when those doubles find their home early on so they do not clutter up your tray!\n\nThe tricky part was the right side of the grid. I had to match (1,3) and (1,4) using an equals rule, while also making sure cell (1,5) stayed at 3. I used the [3,5] domino for cells (1,5) and (1,4), which set (1,4) to 5. Following the rules, (1,3) became 5 too. The [5,4] and [4,6] tiles fell right into place after that to satisfy the last few greater than and equals constraints."
     },
     "hard": {
-      "heading": "Navigating the Unequal Maze",
-      "body": "Wow, Rodolfo Kurchan really put us to the test with this hard grid! The biggest challenge was definitely the unequal region involving [2,3], [2,4], [3,3], and [4,3]. Having four different cells that all have to be unique while also satisfying nearby sums is a lot to juggle. I spent a long time staring at the bottom right, where [3,6] and [4,6] had to sum to 2. I eventually settled on using a 0 and 2 there, which helped me figure out the sum of 10 for [2,5] and [2,6].\n\nThe real breakthrough happened when I looked at the sum of 8 for [3,1] and [3,2]. By testing out the [4,2] and [6,5] dominoes in that area, I finally managed to satisfy the unequal constraint in the center. I had to backtrack once when I realized I’d used the same value twice in the unequal zone, but once I swapped the [4,5] domino into the [2,4] and [2,5] position, everything clicked. It was a tough nut to crack, but so satisfying to finish!"
+      "heading": "A Real Brain Teaser to Finish",
+      "body": "Wow, the hard puzzle was a real marathon today! The biggest challenge was that giant unequal region in the middle and the sum of 10 on the right edge. I spent a lot of time staring at cells (2,5) and (2,6). Since they had to add up to 10, and I had tiles like [4,5] and [5,1], I had to be really careful. I eventually placed the [5,1] domino so that (2,6) was 5, and the [4,5] domino so that (2,5) was 5 too, giving me that perfect 10.\n\nThe bottom area was another puzzle in itself. The sum of 6 at (5,5) and (5,6) combined with the less than 2 constraint at (5,3) and (5,4) left very little room for error. I found that using the [5,2] domino at the bottom right and the [1,1] double for the (5,5) and (5,4) spots helped everything line up. It took a bit of back-and-forth shifting, especially with the [6,5] and [1,4] tiles, but seeing the numbers finally work out was a great feeling.\n\nThe breakthrough happened when I figured out the [3,3] double had to go in cells (3,2) and (3,3). This helped satisfy the sum of 8 for (3,1) and (3,2) because I already had (3,1) set to 5 from the [4,5] tile. Once that middle block was settled, the rest of the tiles like [4,2] and [0,5] filled in the remaining gaps. This one really tested my patience, but I got there in the end!"
     },
-    "tips": "Always start with the smallest or largest sum targets, as they usually have the fewest possible domino combinations. If you see a zero or a double domino, use those as anchors to build out the rest of your solution. Don't forget to cross off your dominoes as you place them so you don't accidentally use the same one twice!",
-    "learned": "I learned that equal constraints are actually much more helpful than they look because they act like bridges between different regions. If you know the value of one cell, the bridge tells you the value of the next one instantly. Today also reminded me that sum targets in single-cell regions are basically free gifts—they tell you exactly what pip value needs to go in that spot without any guessing.",
+    "tips": "Always start with the single-cell sum targets since they act as fixed points for your dominoes. If you see an equals constraint next to a sum constraint, solve the sum first and the rest usually follows like a string of lights. Don't be afraid to try a tile and swap it if the math stops working later on, because sometimes the only way to find the right path is to rule out the wrong ones.",
+    "learned": "I learned that looking at the sum targets in single cells is the best way to start because it basically tells you one half of a domino right away. It narrows down your options from dozens to just a couple of tiles. \n\nAlso, those unequal regions look scary at first, but they actually help narrow down your choices quickly. You can't repeat any numbers you have already placed in that specific block, which is a great way to double-check your work as you go.",
     "faqs": [
       {
-        "question": "What is the goal of the NYT Pips puzzle?",
-        "answer": "The goal is to place a set of standard dominoes onto a grid so that every cell is filled and all mathematical constraints, like sums and equalities, are satisfied."
+        "question": "What is the NYT Pips puzzle?",
+        "answer": "Pips is a logic puzzle where you place a set of dominoes onto a grid to satisfy various mathematical constraints like sums, equalities, and inequalities."
       },
       {
-        "question": "How do sum constraints work in Pips?",
-        "answer": "A sum constraint indicates that the pip values within that specific colored region must add up to the target number shown in the corner of the region."
+        "question": "How do you solve the unequal constraint in Pips?",
+        "answer": "The unequal constraint means that every cell within that specific colored region must have a different value. No numbers can be repeated inside that block."
       },
       {
-        "question": "What does the unequal constraint mean?",
-        "answer": "An unequal constraint means that every cell within that highlighted region must contain a different pip value; no numbers can be repeated inside that area."
+        "question": "What are the rules for placing dominoes in Pips?",
+        "answer": "Every cell in the grid must be covered by exactly one domino from the provided set, and all mathematical symbols between or inside cells must be true based on the domino values."
       },
       {
-        "question": "Can I use the same domino more than once?",
-        "answer": "No, you are provided with a specific set of unique dominoes for each puzzle, and each one can only be placed on the grid once."
+        "question": "Can dominoes be rotated in Pips?",
+        "answer": "Yes, you can place dominoes either horizontally or vertically to fit the grid and satisfy the constraints."
       },
       {
-        "question": "What should I do if I get stuck on a hard Pips puzzle?",
-        "answer": "Look for cells with very low sum targets or regions with equality symbols. These often limit the possible dominoes you can use and provide a starting point for the rest of the grid."
+        "question": "What does a sum constraint in a single cell mean?",
+        "answer": "If a single cell has a sum target, the value of that specific half of the domino must be equal to that target number."
+      },
+      {
+        "question": "Is there a strategy for sum constraints in Pips?",
+        "answer": "Start with small sums or large sums that have fewer combinations. Single-cell sums are the easiest, followed by two-cell sums that have limited domino options."
       }
     ]
   }
