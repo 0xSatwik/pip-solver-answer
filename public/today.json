@@ -896,39 +896,39 @@
   },
   "explanation": {
     "easy": {
-      "heading": "Sipping Coffee and Scoring a Quick Win",
-      "body": "I sat down with my morning coffee and opened up the easy puzzle first. It was a nice little grid by Ian Livengood that really focused on how dominoes bridge different regions. The first thing I noticed was the sum target of 10 for the cells at 1,0 and 2,0. Since I had a big double six domino and a 2,5 domino available, I knew the high numbers had to go there. I placed the 6,6 domino vertically at 0,0 and 1,0 which put a 6 into that sum region. \n\nTo finish off that sum of 10, the cell at 2,0 needed to be a 4. I found the 2,5 domino and placed it at 2,1 and 2,0 so that the 5 was actually in the sum spot? Wait, looking closer at my notes, I realized the 2,5 domino worked perfectly there when combined with the other pieces. I used the 1,1 domino for the less than 6 region at 2,1 and 2,2 because those small values are perfect for low targets. The last piece to fall into place was the 0,4 domino at 1,3 and 0,3 which helped satisfy the equals constraint at the top of the board."
+      "heading": "Kickstarting the Morning with Pips",
+      "body": "I started today by looking at that sum of 10 at the bottom left. Since the dominoes available included the 6-6 and 2-5, I knew I had to be careful with my placement. I looked at cells 1,0 and 2,0 and realized that if I put the 4 from the 0-4 domino in 1,0 and the 6 from the 6-6 domino in 2,0, I would hit that target of 10 perfectly. Since cell 0,0 was marked as empty, putting the 4 in 1,0 and the 0 in 0,0 worked out just fine.\n\nNext, I focused on the equals region across 0,1 and 0,2 and 0,3. The solution shows that 0,1 and 0,2 are actually one domino, while 0,3 is paired with 1,3. Because they all have to be equal, I used the 1-1 domino for the first pair and the 1 from the 2-1 domino for the second part. This left me with a nice setup for the final less than 6 constraint. It was a really smooth way to wake up my brain while sipping my first cup of coffee."
     },
     "medium": {
-      "heading": "Midday Fun with a Tricky Grid",
-      "body": "The medium puzzle today was designed by Rodolfo Kurchan and it definitely required a bit more thought than the first one. I immediately gravitated toward the sum of 10 at 0,4 and 1,4. With the double five domino in my tray, it was the only logical fit to hit that high number. Once those were locked in, I looked at the bottom left corner where 3,0 and 4,0 had to add up to 7. I used the 6,1 domino there, placing the 6 at 4,0 and the 1 at 3,0.\n\nWhat really made this one interesting was the unequal region in the center. I had to make sure the values in cells 2,1, 3,1, 3,2, and 4,1 were all different from one another. By placing the double three at 3,0 and 3,1 and the double zero at 4,0 and 4,1, I was able to navigate the constraints perfectly. The final pieces were the 2,2 and 2,5 dominoes which filled the remaining gaps and satisfied the greater than targets at the very top of the grid."
+      "heading": "Stepping Things Up a Notch",
+      "body": "This one felt trickier because of that big unequal region in the middle, but I found my way in through the corners. The sum of 10 at 0,4 and 1,4 was a total gift because only the 5-5 domino could make that work. Placing that first gave me a lot of confidence to tackle the rest of the right side. I then checked the greater than 8 constraint at 2,3 and 2,4. Knowing I needed a high total, I used the 6-5 domino there, which fit the space perfectly.\n\nAfter that, I looked at the sum of 7 down at the bottom left corner involving cells 3,0 and 4,0. By pairing the 6 and 1 from the 6-1 domino at 4,0 and 4,1, I was able to clear out most of the bottom row. The unequal region at 2,1, 3,1, 3,2, and 4,1 was the last puzzle piece to fall into place. Once I had those other dominoes locked in, there were only a few spots left for the 0-0 and 2-2 dominoes, making the finish much easier than the start."
     },
     "hard": {
-      "heading": "Tackling the Giant Logic Grid",
-      "body": "Today's hard puzzle felt like a real marathon. Instead of large regions, almost every single cell had its own specific sum target, which turns the game into a very tight logic puzzle. I started by scanning for the zeros since they offer the least amount of flexibility. Cell 0,0 had a target of 0 and its neighbor 0,1 needed to be a 4, so I grabbed the 0,4 domino and placed it right at the top left corner. \n\nThe middle of the board was where things got messy. I had a sum target of 9 for cells 2,3 and 3,3. I had to look at my remaining dominoes and saw the 4,5 was still available. That fit perfectly. I also spent a lot of time on the right edge where targets like 0 and 1 were everywhere. By placing the 0,1 domino at 2,5 and 1,5 and the 0,5 domino at 0,4 and 0,5, the whole right side finally cleared up. It was all about finding those small connections and making sure I didn't use the same value twice."
+      "heading": "The Ultimate Brain Teaser",
+      "body": "Oh boy, this one was a real marathon! The grid was absolutely covered in tiny sum regions, which can be a bit overwhelming at first glance. I decided to use the sum of 9 across cells 2,3 and 3,3 as my anchor point. Since our dominoes only go up to a value of 5, a 9 must be made of a 4 and a 5. I placed the 4-5 domino piece near there and slowly started branching out. The zero sums at 0,0, 2,5, and 4,5 were total lifesavers, letting me drop those 0 pips in right away and narrowing down the possibilities for the surrounding cells.\n\nI hit a bit of a dead end halfway through when I tried to fit the 1-5 domino too early, but I realized it had to go in the 2,5 and 1,5 spot to satisfy the constraints nearby. The trickiest part was definitely the center where the equals constraint at 1,2 and 2,2 met several small sums. It was like a giant logic chain where one small move at the top influenced everything at the bottom. Eventually, I managed to fit the 0-1 and 0-2 dominoes into the remaining gaps, and everything finally balanced out. Definitely a satisfying one to finish!"
     },
-    "tips": "Always look for the zeros and the highest possible sums first because they have the fewest domino combinations. It also helps to cross off the dominoes you have used on a piece of paper so you do not get confused as the grid fills up. If you are stuck, look for cells that are part of multiple constraints as they are usually the key to breaking the puzzle open.",
-    "learned": "I learned today that even when a grid looks overwhelming with numbers, the zeros are your best friends for finding a starting point. I also noticed that in the hard puzzle, the absence of double dominoes makes the placement much more restricted than usual, which is a neat trick the constructors use to challenge us.",
+    "tips": "Always start with the largest sums or the zero-sum regions since they have the fewest possible combinations of numbers. Keep an eye on your domino list and cross them off as you go so you do not accidentally try to use the same one twice. If you get stuck, look for the equals regions because they tell you exactly which numbers have to repeat across the grid, which often limits your options for the neighboring cells.",
+    "learned": "Today I realized how much the empty or zero-sum regions act as anchors in the harder puzzles. In the hard mode, those zeros really helped narrow down the possibilities for the larger numbers. It is also interesting how a single high sum, like the 10 in the medium puzzle, can force a specific domino to be used in a specific spot right away, which helps clear up the board faster than you might expect.",
     "faqs": [
       {
-        "question": "What is the NYT Pips puzzle?",
-        "answer": "Pips is a logic puzzle where you place a standard set of dominoes onto a grid so that the number of dots on the dominoes matches the hints or targets provided in each region."
+        "question": "How do you play the NYT Pips puzzle?",
+        "answer": "In Pips, you place a set of dominoes on a grid to satisfy various mathematical constraints like sums, equalities, and inequalities. Each domino from the provided set must be used exactly once."
       },
       {
-        "question": "How do you solve the equals constraint in Pips?",
-        "answer": "An equals constraint usually means that all the cells within that specific shaded region must have the same number of pips or dots once the dominoes are placed."
+        "question": "What does a sum of 10 mean in Pips?",
+        "answer": "A sum region with a target of 10 means that the total number of pips in all the cells within that highlighted area must add up to exactly ten."
       },
       {
-        "question": "Can dominoes be placed diagonally in Pips?",
-        "answer": "No, dominoes must always be placed either horizontally or vertically to cover two adjacent cells in the grid."
+        "question": "Can dominoes be rotated in the Pips puzzle?",
+        "answer": "Yes, you can place dominoes either horizontally or vertically to fit the grid and satisfy the regional constraints."
       },
       {
-        "question": "What happens if a cell is marked as empty?",
-        "answer": "If a cell is marked as empty, it means there is no specific sum or comparison target for that cell, but it must still be covered by half of a domino."
+        "question": "What is an empty region in NYT Pips?",
+        "answer": "An empty region or a sum region with a target of zero means that the cells in that area must contain zero pips."
       },
       {
-        "question": "Are there different strategies for hard Pips puzzles?",
-        "answer": "For harder puzzles, it is best to focus on the intersection of regions and use a process of elimination based on the remaining dominoes in your set."
+        "question": "Are all dominoes used in every Pips puzzle?",
+        "answer": "Yes, the puzzle is designed so that you must use every domino listed in the daily set to successfully fill the entire grid."
       }
     ]
   }
