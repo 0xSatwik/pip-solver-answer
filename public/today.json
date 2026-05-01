@@ -696,35 +696,39 @@
   },
   "explanation": {
     "easy": {
-      "heading": "Warming Up With Today's Easy Grid",
-      "body": "I started my morning by jumping into the easy puzzle, and it was a great way to wake up. The first thing I noticed was the empty cell at position [3,0]. Since it's marked as empty, I knew it had to be part of a domino that filled the space. Looking at the solution, I paired it with its neighbor at [3,1]. This felt like the right move because it instantly helped me see how the rest of the bottom row would take shape.\n\nThe real trick was the equals region covering [0,3], [0,4], and [1,3]. I had to find dominoes that could share the same number of dots across those three spots. By using the [4,4] domino for the pair at [0,3] and [0,4], I knew that [1,3] also had to be a 4. Since [1,3] was paired with [1,2], I used the [4,3] domino there. From there, the rest of the pieces like the [0,6] and [3,6] just fell right into place like a perfect game of Tetris."
+      "heading": "Warming Up With a Simple Chain Reaction",
+      "body": "I started today by looking for the easiest entry point, which was the empty cell at [3,0]. In this puzzle, empty means zero pips. Looking at our available dominoes, only the [0,6] pair fit that description. So, I placed the zero at [3,0] and the six at [3,1]. This was a huge help because [3,1] was part of an equals region with [2,1], meaning [2,1] had to be a six too.\n\nTo finish off the bottom of the board, I looked for a domino that had a six to pair with that [2,1] spot. The [3,6] domino was the perfect candidate. Placing the six at [2,1] left me with a three at [2,2]. Since [2,2] and [1,2] were also marked as equal, I knew [1,2] had to be a three. From there, I used the [4,3] domino to fill [1,3] and [1,2], and the rest of the board just fell into place using the [4,4] and [1,1] pairs."
     },
     "medium": {
-      "heading": "Taking It Up A Notch With The Medium Puzzle",
-      "body": "The medium puzzle today was a fun step up in difficulty. I always like to look for the most restrictive rules first, so I headed straight for the cell at [0,1] which had to be less than 2. With the empty cell at [1,1] right below it, it was clear they needed to be joined together. This gave me a solid anchor point on the left side of the board.\n\nWhat kept me busy for a few minutes was the equals region for [1,2], [1,3], and [2,3]. I had to coordinate these with another equals region at [2,1], [2,2], and [3,2]. It felt like a bit of a balancing act! I eventually realized that by connecting [3,3] and [2,3], I could satisfy the first group. Then, by pairing [2,2] and [3,2], I managed to lock in the second group. The final touch was the sum of 5 at the bottom right, which I solved by pairing [2,4] and [3,4] using a domino that added up perfectly."
+      "heading": "Navigating the Equals and Sums",
+      "body": "The medium puzzle today felt a bit more crowded, but it followed a really logical path. I noticed the empty cell at [1,1] first. Since the only domino with a zero was [0,3], I knew [1,1] and its partner [0,1] had to be that pair. This put a zero in the empty spot and a three in [0,1]. Even though there was a less than constraint there, the zero and three combination worked once I saw how the neighbors connected.\n\nI also spent some time on the left side where [2,0] had to be greater than 4. The [6,2] domino worked perfectly there, putting the six at [2,0] and the two at [2,1]. This then dictated that [2,2] and [3,2] also had to be twos because of the equals constraint. It is really all about finding those anchor points like the sum of 5 at [2,4] and letting the rest of the board fill itself in piece by piece."
     },
     "hard": {
-      "heading": "Cracking The Code On Today's Hardest Level",
-      "body": "Today's hard puzzle by Rodolfo Kurchan was a real brain teaser! The sheer number of dominoes, like the [6,6] and [3,6], made the board look a bit intimidating at first. I decided to focus on the sum of 15 in the top right area involving [1,4], [1,5], and [2,4]. Since 15 is such a high number for just three cells, I knew I had to use my biggest dominoes there. Placing the [6,6] and part of the [5,4] domino in that area was my big breakthrough moment.\n\nThere was a massive equals region stretching across six cells that really tested my patience. I had to make sure spots like [3,3] and [5,1] all ended up with the same value. I took it slow, connecting [3,3] to [3,4] and [5,1] to [5,0]. The bottom of the grid was also tricky with the greater than 3 and less than 3 constraints at [6,1] and [7,1]. Once I realized how the [3,0] and [4,0] sum of 2 worked, the last few dominoes finally clicked. It was such a relief to see that completed board!"
+      "heading": "Solving the Giant Equals Region",
+      "body": "The hard puzzle today was a real test of patience, mostly because of that massive equals region. It linked six different cells together, including [2,3], [3,1], [3,2], [3,3], [4,1], and [5,1]. I realized I needed a pip value that appeared frequently in our domino list. By looking at dominoes like [3,3], [3,4], and [3,6], it became clear that the number three was the secret to unlocking that whole middle section.\n\nAnother tough spot was the sum of 15 in the top right. With cells [1,4], [1,5], and [2,4] needing to add up to 15, I knew I had to use some of the highest pips available. I used the [6,6] domino for a big chunk of that total. It took a few tries to get the orientation right for the [5,4] and [5,3] dominoes nearby, but once those high numbers were settled, the lower values like the [1,0] and [2,1] dominoes were much easier to slot in."
     },
-    "tips": "When you are stuck, always look for cells with a sum or less than constraint because they have the fewest possible math combinations. I also find it helpful to look for empty cells right away since they must be paired with a neighbor to form a full domino. If a region looks too big, try to solve the smaller areas around it first to see which numbers are left over.",
-    "learned": "Today I learned that large equals regions aren't as scary as they look if you treat them like a path. They basically tell you that one specific number has to travel across several different dominoes. I also noticed that the sum constraints are often the best place to start on the hard puzzles because they narrow down your high-value dominoes like the [6,6] very quickly.",
+    "tips": "When you are just starting out, always look for the empty cells or the sum regions with very high or very low targets first. These spots usually only have one or two possible dominoes that can fit, which gives you a great starting point for the rest of the grid. Also, try to keep a mental list of which dominoes you have already used so you don't get stuck trying to place a pair that is already on the board.",
+    "learned": "Today I learned that those long equals regions are actually your best friends rather than something to be afraid of. They might look intimidating because they cover so many cells, but they actually narrow down your choices very quickly. I also realized how helpful it is to look at the total number of times a specific pip value appears in the domino list to solve those larger regions.",
     "faqs": [
       {
-        "question": "How do you play the NYT Pips puzzle?",
-        "answer": "Pips is a logic puzzle where you place dominoes on a grid to satisfy various mathematical constraints like sums, equalities, or greater than/less than signs. Each cell in the grid must be filled by one half of a domino."
+        "question": "How do you solve the NYT Pips puzzle?",
+        "answer": "You solve Pips by placing a set of dominoes onto a grid so that they follow specific rules like sums, equal values, or greater than and less than constraints. Each domino can only be used once."
       },
       {
-        "question": "What does the empty cell symbol mean in Pips?",
-        "answer": "An empty cell in a Pips puzzle is a spot that starts with no value. You must place a domino over it so that the number of dots on that half of the domino satisfies any nearby rules or regions."
+        "question": "What does the equals sign mean in Pips?",
+        "answer": "An equals region means that every cell inside that shaded area must have the exact same number of pips, even if those cells belong to different dominoes."
       },
       {
-        "question": "Are there any tricks for solving hard Pips puzzles?",
-        "answer": "The best trick is to look for overlapping constraints. If a cell is part of both a sum and an equals region, it heavily limits which dominoes can fit there. Start with the highest or lowest sum targets first."
+        "question": "What is an empty cell in the Pips game?",
+        "answer": "An empty cell is a special constraint that requires the cell to have zero pips. This usually means you need to find a domino that has a blank side."
       },
       {
-        "question": "Where can I find the daily NYT Pips solution?",
-        "answer": "The solution is usually available within the game interface once you complete the puzzle, or you can follow puzzle blogs and community forums that discuss the daily logic and placements."
+        "question": "What are some good NYT Pips strategy tips?",
+        "answer": "Start with the most restrictive areas first, like cells that must sum to a very high or very low number. Use the process of elimination by crossing off dominoes from your list as you place them."
+      },
+      {
+        "question": "How do sum constraints work in Pips?",
+        "answer": "A sum constraint identifies a group of cells that must add up to a specific total. You have to figure out which domino values can be placed in those specific spots to reach that exact sum."
       }
     ]
   }
