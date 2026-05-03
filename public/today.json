@@ -819,39 +819,39 @@
   },
   "explanation": {
     "easy": {
-      "heading": "Warming Up With A Quick One",
-      "body": "I hope your morning is going well! I just finished the easy Pips puzzle, and it was the perfect little brain-waker to start the day. I began by looking at that massive sum of 17 on the right side. Since the domino list only had a few high numbers like the 4-6 and the 3-6, I knew those big sixes had to go in that column. I placed a 6 in cell 2,3 and another 6 in cell 3,3, then grabbed the 5 from the 5-1 domino to fill the 1,3 spot. It felt so good to see that 17 click into place right away.\n\nAfter that, the rest of the board was like putting together a very small map. I had the 1-1 domino left, and I placed it at 2,0 and 2,1 where those empty spaces were. The sum of 4 in the middle was easy to finish once I realized the 2-1 domino and the remaining half of the 3-6 domino were the only things left that would fit. It is funny how those big numbers really dictate where everything else has to go!"
+      "heading": "Warming Up With Your Morning Coffee",
+      "body": "Starting today's easy puzzle was a nice way to wake up. I always like to scan for the biggest numbers first, and that sum of 17 in the third column really jumped out at me. Since there were only three spots to make 17, I knew I had to use some of the highest pips available. I looked at the dominoes and saw the 4-6 and the 3-6. By putting a 6 in cell (2,3) and another 6 in cell (3,3), I only needed a 5 to finish the sum. Luckily, the 5 from the 5-1 domino fit perfectly at (1,3).\n\nOnce that big sum was done, the rest of the pieces fell into place like magic. I saw that cell (2,4) had to be greater than 3, and since it was paired with the 6 at (2,3), the 4 from that same 4-6 domino worked perfectly there. I then used the 1-1 domino to fill the L-shaped region that needed to sum up to 4, placing them at (1,2) and (2,2). Finally, I tucked the 2-1 domino into the bottom left corner, using the empty spot at (2,0) for the 2 and putting the 1 at (2,1). It was a smooth start to the day!"
     },
     "medium": {
-      "heading": "Stepping Up The Challenge",
-      "body": "The medium puzzle today definitely stepped things up! I found myself scratching my head over the equals regions for a bit. There was one spot where three cells (1,3, 1,4, and 2,4) all had to be exactly the same value. I looked at my pile of dominoes and saw that I could use parts of the 4-3 and 6-3 dominoes to put 3s in those spots. Once I got those identical numbers lined up, the whole middle of the grid started looking much cleaner.\n\nThe trickiest part for me was the region at the bottom left that needed to be greater than 10. I saved my 6-0 and 6-3 dominoes specifically for that corner. By placing the 6 from the 6-3 domino at 1,0 and the 6 from the 6-0 domino at 2,0, I hit a sum of 12, which cleared the target easily. I ended the puzzle by using the double 1s to satisfy the sum of 2 at the very top. It was a nice little victory to have before my second cup of coffee!"
+      "heading": "Stepping Up the Challenge Just a Bit",
+      "body": "The medium puzzle today had some really interesting equal regions that made me stop and think. I started by looking at the left side where cells (1,0) and (2,0) had to add up to more than 10. That's a huge total for just two spots! I looked at my dominoes and saw two that had a 6 on them: the 6-3 and the 6-0. I placed the 6 from the 6-0 at (2,0) and the 6 from the 6-3 at (1,0), which gave me exactly 12. This left the 0 and the 3 to be placed in the nearby empty and sum regions.\n\nMoving into the center, the equals regions were the real stars. Cells (1,3), (1,4), and (2,4) all had to be the same number. I looked at what I had left and realized that the 4s from the 4-3 and 4-1 dominoes could work, or maybe the 3s. I eventually saw that the 1-1 domino was needed for the sum of 2 at the very top, which helped me narrow down the middle. I finished it off by placing the 2-2 domino near the center to satisfy the equals constraint there. It felt like a giant game of logic dominoes!"
     },
     "hard": {
-      "heading": "A Real Monday Morning Head Scratcher",
-      "body": "Wow, today's hard puzzle by Rodolfo Kurchan was a real journey! I actually had to start and stop a few times before I found my rhythm. The breakthrough for me was the column on the far left where cells 5,0, 6,0, and 7,0 all had to be equal. I ended up using the 1-1 domino and the 1 from the 1-3 domino to make them all 1s. This was a great anchor point that let me branch out into the surrounding sum regions that needed to hit totals of 4 and 5.\n\nThe middle of the grid was a bit of a jigsaw puzzle with all those small sums. I spent a lot of time toggling the 2-2 and 4-0 dominoes to see which one belonged in which sum region. I finally realized that the 5-4 and 1-5 dominoes were essential for hitting the greater than 5 and sum of 5 targets at the top. It felt like a giant chain reaction once those top dominoes were finally positioned correctly. If you get stuck on a grid this big, I definitely recommend focusing on the regions that require three identical numbers first!"
+      "heading": "The Ultimate Brain Teaser for Monday",
+      "body": "Wow, today's hard puzzle was a real workout! There were so many small sums of 4 and 5 that it felt like every move had to be perfect. My breakthrough moment came when I looked at the bottom left corner. Cells (5,0), (6,0), and (7,0) all had to be equal. I scanned my domino list and saw that I could use the 5s from the 5-0 and 5-4 dominoes to make that happen. Once I locked those 5s into place, the bottom of the grid finally started to make sense.\n\nThe trickiest part was definitely the top section with the equals region across (1,0), (1,1), and (1,2). I had to try a few different combinations before I realized they all had to be 1s. This allowed me to use the 1-1 domino and parts of the 1-3 and 1-5 dominoes to fill the gaps. The greater than 5 clues at the top right also helped guide me to use the 6-6 and 6-4 pieces effectively. It took a lot of patience, but finally seeing that last domino slide into place was so rewarding!"
     },
-    "tips": "Always look for the highest sum regions first because they usually only have one or two possible combinations of dominoes. If you see an equals region, check your domino list for numbers that appear multiple times, like doubles or pairs of different dominoes with the same pip value. Don't be afraid to work from the corners inward, as the edges often have fewer ways to be filled.",
-    "learned": "I learned today that equals regions are actually more helpful than sum regions because they act like a bridge that connects different parts of the board using the same value. I also noticed that high-value targets like the 17 in the easy puzzle are your best friends for narrowing down choices quickly.",
+    "tips": "Always look for the regions with the highest or lowest target sums first because they have the fewest possible pip combinations. If you see an equals region, count how many of each number you have in your domino list to see which ones could actually fit. Don't be afraid to leave a tricky section and work on a different corner of the board; often, solving one side will give you the hint you need for the other.",
+    "learned": "Today I really noticed how important the empty cell clues are. They might seem like they just get in the way, but they actually act as great anchors that prevent certain dominoes from being placed in those spots. It really narrows down your choices much faster than you'd expect.\n\nI also learned that in the hard puzzles, the equals constraints are often linked. Solving one set of equal cells often forces a specific domino into another equals region nearby. It's like a chain reaction where one right move clears up three or four other spots instantly!",
     "faqs": [
       {
-        "question": "How do you solve the NYT Pips puzzle?",
-        "answer": "You solve it by placing dominoes from the provided list onto the grid so that the numbers match the rules in each colored region, such as sums, equality, or greater-than targets."
+        "question": "What are the rules for NYT Pips?",
+        "answer": "In NYT Pips, you must place a set of dominoes onto a grid so that the pips (dots) match the constraints in each region. These constraints include sums, equal values, or greater/less than symbols. Every cell must be filled by exactly one pip from a domino."
       },
       {
-        "question": "What does the equals sign mean in Pips?",
-        "answer": "The equals sign means every cell inside that specific colored region must have the exact same number of pips."
+        "question": "How do you solve a Pips puzzle with sum constraints?",
+        "answer": "Look at the total target for the sum and the number of cells in that region. For high sums, use dominoes with 5s and 6s. For low sums, look for 0s, 1s, and 2s. This limits which dominoes from your list can possibly fit in those spots."
       },
       {
-        "question": "Can you reuse dominoes in NYT Pips?",
-        "answer": "No, each domino in the list for that day can only be used once to fill the grid."
+        "question": "Can dominoes be rotated in the NYT Pips game?",
+        "answer": "Yes, you can place dominoes either horizontally or vertically. The goal is to figure out their orientation and which end goes in which cell to satisfy the clues on the board."
       },
       {
-        "question": "What is the best way to start a hard Pips puzzle?",
-        "answer": "The best way to start is by looking for regions with very high or very low targets, or regions that require several cells to be equal, as these have the fewest possible solutions."
+        "question": "What does the greater than sign mean in Pips?",
+        "answer": "A greater than sign in a region means that the total number of pips in that specific area must be more than the target number shown. For example, if a cell says greater than 3, the pip placed there must be a 4, 5, or 6."
       },
       {
-        "question": "What does a target number with a greater than symbol mean?",
-        "answer": "It means the total sum of all the pips in that colored region must be more than the target number shown."
+        "question": "What is the best strategy for the hard level in Pips?",
+        "answer": "Focus on the equals regions and the largest sums first. These are the most restrictive clues and will help you eliminate dominoes from your list quickly. Use the process of elimination for the remaining smaller regions."
       }
     ]
   }
