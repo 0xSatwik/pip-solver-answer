@@ -824,39 +824,43 @@
   },
   "explanation": {
     "easy": {
-      "heading": "Warming Up With Today's Morning Pips",
-      "body": "Starting the day with the easy puzzle felt like a nice, gentle stretch for the brain. The first thing that caught my eye was that long equals region across the top row. Knowing that cells (0,0) through (0,3) all had to be the same number really narrowed things down. Since almost all the dominoes available had a 0 in them, it was a safe bet that the top row was going to be a string of zeros. Once I placed that, the rest of the board started to fall into place like, well, dominoes!\n\nThe real breakthrough was the sum constraint in the corner. I needed (1,3) and (2,3) to add up to 10. Looking at my remaining tiles, the only way to make that happen without a double-five was to use the [1,5] and [0,5] dominoes. By putting (2,3) as 5 and (1,3) as 5, I hit that 10 perfectly. From there, I just had to check the greater than and less than signs. Putting the [6,0] domino at (1,1) satisfied the greater than 4 rule, and the [2,0] tile fit perfectly in the less than 4 spot. It was a super satisfying solve to finish over my first cup of coffee."
+      "heading": "Warming Up With Some Coffee and Logic",
+      "body": "Happy Tuesday, puzzle friends! Today's easy Pips puzzle was the perfect companion to my morning latte. I started by scanning for the most restrictive spots, which are usually the empty ones. Seeing that [1,0] and [2,2] were marked as empty meant they had to be zero. This is a huge help because it immediately tells you that whatever dominoes land there must have a zero on one side. I looked at our domino list and saw [6,0], [2,0], [0,4], and [0,5] as potential candidates.\n\nThe real breakthrough happened with that sum constraint of 10 for cells [1,3] and [2,3]. Since our biggest domino values are sixes and fives, I knew [2,3] and [1,3] likely had to be a pair of 5s. I placed the [0,5] domino vertically at [2,2] and [2,3] so the zero matched the empty requirement. That left [1,3] needing a 5 to complete the sum of 10. Once I put the other [0,5] domino at [0,3] and [1,3], the whole top row fell into place like magic. It turns out all the cells in that equals region at the top were actually zeros, which made fitting the [6,0], [0,4], and [2,0] dominoes a breeze!"
     },
     "medium": {
-      "heading": "Stepping Up the Logic with Rodolfo",
-      "body": "Rodolfo Kurchan really knows how to make a medium puzzle feel like a proper mystery. I spent a good few minutes staring at that tiny sum of 2 for the three cells in the upper right. Since we are dealing with domino pips, having three cells add up to only 2 is very restrictive. I realized quickly that the only way to make it work was to use the [1,1] domino for cells (1,4) and (1,5), which left (2,4) needing to be a 0. That forced the [0,6] domino into that area, helping me clear out the top right of the board.\n\nDown at the bottom, the sum of 10 for (5,1) and (5,2) was the next big challenge. With the [5,5] domino in the list, it was the obvious candidate, but I had to be careful about which cell it actually occupied. I eventually saw that by pairing the [5,2] domino with the [5,5] tile, I could satisfy both the sum of 10 and the sum of 3 near the bottom left. The logic felt a bit like a dance, moving back and forth between the sums until every piece clicked into its home."
+      "heading": "Stepping Up the Heat in the Middle",
+      "body": "The medium puzzle today felt like a bit of a jump! That sum of 2 in the top right across three cells—[1,4], [1,5], and [2,4]—was my favorite starting point. When you have three cells adding up to only 2, you know you're looking at a combination of zeros and ones. It really narrows down the possibilities for the [1,1] and [3,5] dominoes. I spent a few minutes hovering my mouse over the grid, trying to visualize how the [5,5] domino would fit, especially with that big sum of 10 sitting at the bottom.\n\nI eventually realized that the sum of 10 at [5,1] and [5,2] and the sum of 9 at [3,2] and [4,2] were the keys to the kingdom. By placing high-value dominoes like [4,3] and [5,2] in that central area, the rest of the board started to feel much less intimidating. The trickiest part was definitely the bottom corner where [5,0] and [6,0] had to sum to 3. I almost put a 2 there, but then I remembered my earlier placements and realized the [6,1] domino was the perfect fit to satisfy both the sum and the neighbor constraints. It felt so satisfying to see the checkmark pop up!"
     },
     "hard": {
-      "heading": "A True Tuesday Brain Workout",
-      "body": "Wow, the hard puzzle today was a real journey! I actually got stuck for a second right in the middle. The huge sum of 12 across cells (5,4), (5,5), and (5,6) was the anchor for the whole grid. To get a sum that high, I knew I needed to use some of the biggest pips available, like the [4,5] and [3,6] dominoes. Once I committed to those being the core of that region, the rest of the bottom half started to make sense. I particularly liked how the sum of 7 at (9,5) and (9,6) played off the greater than 0 constraint nearby—it felt like a clever little trap if you weren't paying attention.\n\nThe hardest part for me was the top left corner. Balancing the sum of 7 with the greater than 4 requirement at (0,0) took some trial and error. I initially tried to put the [5,2] domino there, but it messed up the sum of 5 in the middle of the board. The breakthrough moment came when I realized the [1,6] domino had to live near the top to satisfy that 7 sum. After that, the remaining tiles like [0,2] and [2,4] fit into their spots like they were meant to be there all along. Finishing this one felt like a real victory!"
+      "heading": "A Real Brain Burner for the Bold",
+      "body": "Wow, today's hard puzzle did not come to play! With 15 dominoes to place and a much larger grid, I had to stay organized. I immediately gravitated toward the large sum of 12 in the region containing [5,4], [5,5], and [5,6]. Since the target is so high, I knew I had to use my biggest pips there. I tentatively placed the [5,5] domino across [5,4] and [5,5], which left the [5,6] cell needing to be a 2. This was a gamble, but it helped me branch out into the surrounding regions.\n\nThe hardest part for me was the middle section with the less than 4 constraint at [2,3] and [2,4]. I kept trying to put the [1,6] domino nearby, but it just wouldn't click. The turning point came when I looked at the sum of 7 at the bottom for [9,5] and [9,6]. Once I realized the [5,2] domino could fit there if I oriented it correctly, the whole bottom-right quadrant cleared up. I did hit one dead end where the greater than 5 constraint at [2,1] didn't work with my [1,2] domino, but after swapping a few pairs around [0,1] and [1,1], everything finally balanced out. Definitely a two-cup-of-coffee kind of puzzle!"
     },
-    "tips": "Always look for the smallest or largest sums first, as they have the fewest possible combinations. If you see a greater than or less than sign, use it to eliminate high or low numbers from your options immediately. Don't be afraid to pencil in a domino and see if it breaks a rule later—sometimes seeing what doesn't work is the fastest way to find what does!",
-    "learned": "Today really highlighted how much a single 'equals' or 'sum' region can dictate the flow of the entire puzzle. In the easy grid, that row of zeros was like a skeleton that everything else hung onto. I also noticed that in harder puzzles, the constraints are often placed just far enough apart that you have to visualize how two different dominoes will interact before you can place either one.",
+    "tips": "Always start with the most restrictive constraints like empty cells or very small/large sums because they limit your options the most. If you get stuck, look at the dominoes you have left in your tray; sometimes the missing piece is obvious just by seeing what values are still available. Don't be afraid to place a domino tentatively and see how it affects the neighbors—Pips is all about that trial and error!",
+    "learned": "Today I learned that regions with a target sum and only one or two possible domino combinations are your best friends. In the hard puzzle, the sum of 12 was the anchor that kept me from getting totally lost in the larger grid.\n\nI also noticed a neat pattern where greater than and less than constraints often act as bridges between high-sum and low-sum regions. Understanding that flow helps you predict where the big pips like 6 and 5 will cluster versus the zeros and ones.",
     "faqs": [
       {
-        "question": "What are the rules for NYT Pips puzzles?",
-        "answer": "In Pips, you place dominoes onto a grid so that every cell is covered. Each cell must follow the rules of its colored region, such as summing to a specific total, being equal to other cells, or satisfying greater than/less than conditions."
+        "question": "What does the empty constraint mean in NYT Pips?",
+        "answer": "In the NYT Pips puzzle, a region marked as empty means the cell must contain zero pips. This is usually the best place to start your solve."
       },
       {
         "question": "How do you solve the sum constraints in Pips?",
-        "answer": "Look at the number of cells in the sum region and the target total. A small total like 2 for three cells almost always requires zeros and ones, while a large total like 12 requires high-value pips like 5s and 6s."
+        "answer": "To solve a sum constraint, look at the target number and the number of cells in the region. Find combinations of domino values from your available list that add up exactly to that target."
       },
       {
-        "question": "What does the 'empty' region type mean in Pips?",
-        "answer": "An 'empty' region simply means there is no additional numerical constraint on that specific cell. However, that cell must still be part of a valid domino and cannot violate the constraints of its domino partner."
+        "question": "Can dominoes be rotated in Pips?",
+        "answer": "Yes, dominoes can be placed either horizontally or vertically to fit the grid and satisfy the regional constraints."
       },
       {
-        "question": "Can dominoes be placed diagonally in NYT Pips?",
-        "answer": "No, dominoes must always be placed either horizontally or vertically, covering two adjacent cells in the grid."
+        "question": "Are all dominoes used in every NYT Pips puzzle?",
+        "answer": "Yes, every puzzle provides a specific set of dominoes, and you must use all of them exactly once to complete the grid."
       },
       {
-        "question": "Are all dominoes in the list used in every Pips puzzle?",
-        "answer": "Yes, every domino provided in the daily list must be used exactly once to completely fill the grid and satisfy all the region constraints."
+        "question": "What is the equals constraint in Pips?",
+        "answer": "The equals constraint means that every cell within that specific colored region must have the exact same number of pips."
+      },
+      {
+        "question": "Why is my NYT Pips solution not working?",
+        "answer": "Double-check that you haven't used the same domino twice and that every single regional constraint—like sums, greater than, or less than—is fully satisfied."
       }
     ]
   }
