@@ -1,13 +1,17 @@
 {
-  "printDate": "2026-05-07",
+  "printDate": "2026-05-08",
   "editor": "Ian Livengood",
   "easy": {
-    "id": 854,
-    "backendId": "32e2d8b23a205b4db869bb12093280ed",
+    "id": 873,
+    "backendId": "a3fb01c740a5555ea6192f6874e936e9",
     "constructors": "Ian Livengood",
     "dominoes": [
       [
-        5,
+        0,
+        4
+      ],
+      [
+        1,
         5
       ],
       [
@@ -16,19 +20,15 @@
       ],
       [
         1,
-        4
-      ],
-      [
-        6,
         1
       ],
       [
         6,
-        6
+        2
       ],
       [
-        3,
-        1
+        2,
+        2
       ]
     ],
     "regions": [
@@ -37,27 +37,14 @@
           [
             0,
             0
-          ]
-        ],
-        "type": "empty"
-      },
-      {
-        "indices": [
-          [
-            1,
-            0
           ],
           [
-            2,
-            0
-          ],
-          [
-            3,
-            0
-          ],
-          [
-            3,
+            0,
             1
+          ],
+          [
+            0,
+            2
           ]
         ],
         "type": "equals"
@@ -65,31 +52,7 @@
       {
         "indices": [
           [
-            1,
-            1
-          ]
-        ],
-        "type": "sum",
-        "target": 4
-      },
-      {
-        "indices": [
-          [
-            1,
-            2
-          ],
-          [
-            1,
-            3
-          ]
-        ],
-        "type": "sum",
-        "target": 2
-      },
-      {
-        "indices": [
-          [
-            2,
+            0,
             3
           ]
         ],
@@ -98,12 +61,39 @@
       {
         "indices": [
           [
-            3,
-            2
+            2,
+            0
           ]
         ],
-        "type": "less",
-        "target": 2
+        "type": "greater",
+        "target": 5
+      },
+      {
+        "indices": [
+          [
+            2,
+            3
+          ]
+        ],
+        "type": "greater",
+        "target": 5
+      },
+      {
+        "indices": [
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "type": "equals"
       },
       {
         "indices": [
@@ -113,17 +103,22 @@
           ],
           [
             4,
+            2
+          ],
+          [
+            4,
             3
           ]
         ],
-        "type": "equals"
+        "type": "sum",
+        "target": 8
       }
     ],
     "solution": [
       [
         [
-          3,
-          3
+          4,
+          2
         ],
         [
           4,
@@ -133,31 +128,31 @@
       [
         [
           0,
-          0
-        ],
-        [
-          1,
-          0
-        ]
-      ],
-      [
-        [
-          1,
           2
         ],
         [
-          1,
-          1
+          0,
+          3
         ]
       ],
       [
         [
           3,
-          1
+          3
         ],
         [
-          3,
-          2
+          2,
+          3
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
         ]
       ],
       [
@@ -172,32 +167,216 @@
       ],
       [
         [
-          2,
-          3
+          4,
+          0
         ],
         [
-          1,
-          3
+          4,
+          1
         ]
       ]
     ]
   },
   "medium": {
-    "id": 879,
-    "backendId": "4923edf3b6235ebca22b5f45603a0c7b",
+    "id": 895,
+    "backendId": "4f8492e4dd52537ab56f9497d7478325",
     "constructors": "Rodolfo Kurchan",
     "dominoes": [
       [
-        1,
+        2,
         0
       ],
       [
         5,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        6,
         6
       ],
       [
-        3,
-        1
+        5,
+        4
+      ]
+    ],
+    "regions": [
+      {
+        "indices": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "type": "equals"
+      },
+      {
+        "indices": [
+          [
+            0,
+            4
+          ]
+        ],
+        "type": "less",
+        "target": 4
+      },
+      {
+        "indices": [
+          [
+            1,
+            0
+          ]
+        ],
+        "type": "empty"
+      },
+      {
+        "indices": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "type": "equals"
+      },
+      {
+        "indices": [
+          [
+            2,
+            0
+          ]
+        ],
+        "type": "empty"
+      },
+      {
+        "indices": [
+          [
+            2,
+            3
+          ]
+        ],
+        "type": "empty"
+      },
+      {
+        "indices": [
+          [
+            3,
+            0
+          ]
+        ],
+        "type": "less",
+        "target": 4
+      },
+      {
+        "indices": [
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "type": "sum",
+        "target": 5
+      },
+      {
+        "indices": [
+          [
+            4,
+            0
+          ]
+        ],
+        "type": "sum",
+        "target": 5
+      }
+    ],
+    "solution": [
+      [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      [
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      [
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      [
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      [
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    ]
+  },
+  "hard": {
+    "id": 916,
+    "backendId": "dfe52058a3a45a6d9db8367d53afa684",
+    "constructors": "Rodolfo Kurchan",
+    "dominoes": [
+      [
+        6,
+        5
       ],
       [
         3,
@@ -208,287 +387,48 @@
         4
       ],
       [
-        3,
-        0
-      ],
-      [
-        1,
-        2
-      ],
-      [
-        1,
-        4
-      ]
-    ],
-    "regions": [
-      {
-        "indices": [
-          [
-            0,
-            2
-          ]
-        ],
-        "type": "sum",
-        "target": 0
-      },
-      {
-        "indices": [
-          [
-            1,
-            0
-          ]
-        ],
-        "type": "empty"
-      },
-      {
-        "indices": [
-          [
-            1,
-            1
-          ]
-        ],
-        "type": "sum",
-        "target": 3
-      },
-      {
-        "indices": [
-          [
-            1,
-            2
-          ],
-          [
-            2,
-            2
-          ]
-        ],
-        "type": "sum",
-        "target": 3
-      },
-      {
-        "indices": [
-          [
-            1,
-            3
-          ]
-        ],
-        "type": "empty"
-      },
-      {
-        "indices": [
-          [
-            1,
-            4
-          ]
-        ],
-        "type": "empty"
-      },
-      {
-        "indices": [
-          [
-            2,
-            1
-          ]
-        ],
-        "type": "less",
-        "target": 3
-      },
-      {
-        "indices": [
-          [
-            2,
-            3
-          ],
-          [
-            2,
-            4
-          ]
-        ],
-        "type": "sum",
-        "target": 3
-      },
-      {
-        "indices": [
-          [
-            3,
-            1
-          ]
-        ],
-        "type": "sum",
-        "target": 3
-      },
-      {
-        "indices": [
-          [
-            3,
-            4
-          ],
-          [
-            4,
-            4
-          ]
-        ],
-        "type": "equals"
-      },
-      {
-        "indices": [
-          [
-            4,
-            1
-          ]
-        ],
-        "type": "less",
-        "target": 3
-      },
-      {
-        "indices": [
-          [
-            4,
-            2
-          ],
-          [
-            4,
-            3
-          ]
-        ],
-        "type": "less",
-        "target": 3
-      }
-    ],
-    "solution": [
-      [
-        [
-          2,
-          3
-        ],
-        [
-          2,
-          2
-        ]
-      ],
-      [
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          4
-        ]
-      ],
-      [
-        [
-          3,
-          1
-        ],
-        [
-          2,
-          1
-        ]
-      ],
-      [
-        [
-          1,
-          0
-        ],
-        [
-          1,
-          1
-        ]
-      ],
-      [
-        [
-          2,
-          4
-        ],
-        [
-          3,
-          4
-        ]
-      ],
-      [
-        [
-          1,
-          2
-        ],
-        [
-          0,
-          2
-        ]
-      ],
-      [
-        [
-          4,
-          2
-        ],
-        [
-          4,
-          1
-        ]
-      ],
-      [
-        [
-          4,
-          3
-        ],
-        [
-          4,
-          4
-        ]
-      ]
-    ]
-  },
-  "hard": {
-    "id": 899,
-    "backendId": "f675ab1ff1e050d59db364be72ef2408",
-    "constructors": "Rodolfo Kurchan",
-    "dominoes": [
-      [
         5,
-        2
-      ],
-      [
-        4,
-        0
-      ],
-      [
-        1,
-        2
-      ],
-      [
-        6,
-        4
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        5,
-        5
-      ],
-      [
-        1,
-        6
-      ],
-      [
-        3,
-        0
-      ],
-      [
-        5,
-        1
-      ],
-      [
-        2,
-        6
-      ],
-      [
-        4,
         1
       ],
       [
         0,
+        2
+      ],
+      [
+        4,
         5
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        6,
+        6
       ]
     ],
     "regions": [
@@ -496,92 +436,72 @@
         "indices": [
           [
             0,
-            0
-          ],
-          [
-            1,
-            0
+            2
           ]
         ],
-        "type": "equals"
+        "type": "sum",
+        "target": 4
       },
       {
         "indices": [
           [
             0,
-            1
+            3
           ],
-          [
-            1,
-            1
-          ]
-        ],
-        "type": "sum",
-        "target": 2
-      },
-      {
-        "indices": [
           [
             0,
             4
           ],
           [
-            0,
-            5
-          ]
-        ],
-        "type": "sum",
-        "target": 10
-      },
-      {
-        "indices": [
-          [
             1,
             4
-          ],
-          [
-            1,
-            5
           ]
         ],
         "type": "sum",
-        "target": 7
+        "target": 3
       },
       {
         "indices": [
           [
-            2,
+            1,
             0
-          ],
+          ]
+        ],
+        "type": "empty"
+      },
+      {
+        "indices": [
           [
-            3,
-            0
+            1,
+            2
           ]
         ],
         "type": "greater",
-        "target": 10
+        "target": 4
       },
       {
         "indices": [
           [
             2,
-            1
-          ],
+            0
+          ]
+        ],
+        "type": "sum",
+        "target": 4
+      },
+      {
+        "indices": [
           [
             2,
             2
           ],
           [
             3,
-            1
+            2
           ],
           [
             4,
-            0
-          ],
-          [
-            4,
-            1
+            2
           ]
         ],
         "type": "equals"
@@ -593,31 +513,14 @@
             3
           ]
         ],
-        "type": "empty"
+        "type": "less",
+        "target": 3
       },
       {
         "indices": [
           [
             2,
             4
-          ],
-          [
-            3,
-            4
-          ]
-        ],
-        "type": "sum",
-        "target": 10
-      },
-      {
-        "indices": [
-          [
-            2,
-            5
-          ],
-          [
-            3,
-            5
           ]
         ],
         "type": "sum",
@@ -627,20 +530,26 @@
         "indices": [
           [
             3,
-            2
-          ],
-          [
-            3,
-            3
+            0
           ]
         ],
         "type": "sum",
-        "target": 9
+        "target": 3
       },
       {
         "indices": [
           [
-            5,
+            3,
+            4
+          ]
+        ],
+        "type": "sum",
+        "target": 3
+      },
+      {
+        "indices": [
+          [
+            4,
             0
           ]
         ],
@@ -649,123 +558,127 @@
       {
         "indices": [
           [
-            5,
-            1
+            4,
+            4
           ]
         ],
         "type": "greater",
-        "target": 0
+        "target": 4
+      },
+      {
+        "indices": [
+          [
+            6,
+            1
+          ],
+          [
+            6,
+            2
+          ]
+        ],
+        "type": "equals"
+      },
+      {
+        "indices": [
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            7,
+            4
+          ]
+        ],
+        "type": "equals"
+      },
+      {
+        "indices": [
+          [
+            7,
+            1
+          ]
+        ],
+        "type": "sum",
+        "target": 4
+      },
+      {
+        "indices": [
+          [
+            7,
+            2
+          ]
+        ],
+        "type": "sum",
+        "target": 3
+      },
+      {
+        "indices": [
+          [
+            8,
+            1
+          ],
+          [
+            9,
+            1
+          ]
+        ],
+        "type": "less",
+        "target": 3
+      },
+      {
+        "indices": [
+          [
+            8,
+            3
+          ]
+        ],
+        "type": "less",
+        "target": 3
+      },
+      {
+        "indices": [
+          [
+            8,
+            4
+          ]
+        ],
+        "type": "greater",
+        "target": 4
+      },
+      {
+        "indices": [
+          [
+            9,
+            4
+          ]
+        ],
+        "type": "less",
+        "target": 4
       }
     ],
     "solution": [
       [
         [
-          3,
-          4
-        ],
-        [
-          3,
-          5
-        ]
-      ],
-      [
-        [
-          0,
-          0
-        ],
-        [
-          0,
-          1
-        ]
-      ],
-      [
-        [
           2,
-          1
+          2
         ],
         [
           1,
-          1
-        ]
-      ],
-      [
-        [
-          2,
-          0
-        ],
-        [
-          1,
-          0
+          2
         ]
       ],
       [
         [
           3,
-          1
+          0
         ],
         [
           4,
-          1
-        ]
-      ],
-      [
-        [
-          0,
-          4
-        ],
-        [
-          0,
-          5
-        ]
-      ],
-      [
-        [
-          4,
           0
-        ],
-        [
-          3,
-          0
-        ]
-      ],
-      [
-        [
-          5,
-          1
-        ],
-        [
-          5,
-          0
-        ]
-      ],
-      [
-        [
-          2,
-          4
-        ],
-        [
-          1,
-          4
-        ]
-      ],
-      [
-        [
-          2,
-          5
-        ],
-        [
-          1,
-          5
-        ]
-      ],
-      [
-        [
-          3,
-          2
-        ],
-        [
-          2,
-          2
         ]
       ],
       [
@@ -774,43 +687,157 @@
           3
         ],
         [
-          3,
+          2,
+          4
+        ]
+      ],
+      [
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      [
+        [
+          8,
           3
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      [
+        [
+          7,
+          1
+        ],
+        [
+          6,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      [
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      [
+        [
+          4,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      [
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      [
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          1
+        ]
+      ],
+      [
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
         ]
       ]
     ]
   },
   "explanation": {
     "easy": {
-      "heading": "Warming Up With A Morning Brew",
-      "body": "I started my morning with the easy grid and a fresh cup of coffee. The first thing that caught my eye were the empty spots at (0,0) and (2,3). Even though they are empty, they are still part of a domino, which helps narrow down the choices. I noticed the Equals region at (3,3) and (4,3) right away. I decided to use the [6,6] domino there, which felt like a solid anchor. \n\nNext, I looked at the Sum of 2 region at (1,2) and (1,3). I realized that if I put the [3,1] domino across (3,1) and (3,2), it would satisfy the Less than 2 constraint because the 1 pip lands perfectly on (3,2). This left the [1,4] domino to handle the Sum of 2 area, placing the 1 pip at (1,2). The rest of the pieces, like the [5,5] and [6,1], fell into the larger Equals region and the remaining gaps quite naturally once those first few were set."
+      "heading": "Waking Up With A Quick Win",
+      "body": "I started my morning with the easy grid and it was such a nice way to get the brain moving. I first looked at the spots that needed to be greater than 5, specifically at (2,0) and (2,3). Since our dominoes today included [4,6] and [6,2], I knew those 6s had to go in those spots. I placed the [2,0] domino vertically so the 6 landed right on that (2,0) constraint, and did the same with the [3,3] and [2,3] domino to get the 6 onto (2,3).\n\nNext, I looked at the bottom right where a group of three cells at (3,3), (4,2), and (4,3) had to add up to 8. I already had a 2 in the (3,3) spot from my previous move, so I needed the other two cells to add up to 6. Using the [4,2] domino there worked perfectly. It felt great to see the bottom of the board click into place so fast! The rest was just matching up the equals signs, like putting the [1,1] domino in that top left section."
     },
     "medium": {
-      "heading": "Navigating The Midday Maze",
-      "body": "The medium puzzle today felt like a bit of a treasure hunt. I spotted a Sum of 0 constraint at cell (0,2) and knew that was my starting point. Since only a zero can satisfy that, I looked for a domino with a 0. I ended up placing the [1,2] domino so that the 0 side rested on (0,2). This immediately helped me figure out the Sum of 3 region right below it at (1,2) and (2,2).\n\nThings got a little more crowded in the middle of the board. I had to manage several regions that all wanted a sum of 3. I found that placing the [3,1] domino vertically at (3,1) and (2,1) satisfied the Less than 3 constraint perfectly. The Equals region at (3,4) and (4,4) was the final piece of the puzzle. I used the [2,4] domino there, and it was such a relief to see all the numbers line up with their neighbors without any leftovers."
+      "heading": "Navigating The Empty Spaces",
+      "body": "The medium puzzle today felt a bit like a ghost town because of all those empty cells! I had to be careful not to let my dominoes land on (1,0), (2,0), or (2,3). I focused my attention on the sum constraints first. I saw that (4,0) needed a sum of 5, but it was only one cell. That meant the half of the domino landing there had to be a 5. I used the [5,1] domino, which placed a 5 at (4,0) and a 1 at (3,0). Since (3,0) had to be less than 4, that 1 fit just fine.\n\nThen I tackled the middle section. There was another sum of 5 at (3,2) and (4,2). I used the [2,3] domino to fill those, which felt like a solid choice. The hardest part was figuring out where to put the big [6,6] domino since it couldn't go near any of the less than 4 areas. I eventually found a home for the remaining pieces by matching the equals constraints at (0,2) and (1,2). It took a minute of shuffling, but once the 5s and 0s were placed, the rest flowed naturally."
     },
     "hard": {
-      "heading": "A Deep Dive Into The Domino Deep End",
-      "body": "Today's hard puzzle was a real brain teaser, especially that massive Equals region covering five different cells like (2,1) and (4,1). I spent several minutes just staring at the Greater than 10 constraint at (2,0) and (3,0). I knew I needed two very high numbers there, so I saved my [6,4] and [5,5] dominoes to see where they would fit best. I eventually used a combination that put high pips in that zone to clear the 10-point hurdle.\n\nThe breakthrough happened when I tackled the top right corner. The Sum of 10 at (0,4) and (0,5) and the Sum of 7 at (1,4) and (1,5) were like two interlocking gears. Once I placed the [0,5] and [2,6] dominoes in that area, the rest of the board started to make sense. I had one small moment of panic near the bottom with the Greater than 0 constraint at (5,1), but placing the [5,1] domino there solved it instantly. It was a tough one, but finishing it felt amazing."
+      "heading": "Tackling The Big Grid Giant",
+      "body": "Wow, the hard puzzle today really made me work for it! With fourteen dominoes to place, I felt a little lost at first. I decided to hunt for the greater than 4 constraints because those are usually the most restrictive. Looking at (1,2), (4,4), and (8,4), I knew I needed to save my 5s and 6s for these spots. I placed the [6,6] and [6,5] dominoes early on to satisfy the requirements at the top and bottom. \n\nOne of the biggest breakthroughs was the equals region at (2,2), (3,2), and (4,2). Since three cells had to be identical, I had to find dominoes that could share a value across those boundaries. I used parts of the [2,2] and [0,2] dominoes to make it work. The bottom left corner was a bit of a mess for a second because of the less than 3 constraints at (8,1) and (9,1). I had to swap my [1,0] and [0,0] dominoes a few times before I realized I was blocking myself. Once I settled on putting the [1,1] pair down there, everything else finally aligned. It was a long solve, but seeing that final checkmark was so satisfying!"
     },
-    "tips": "Always look for regions with a target of zero or very low numbers first, as they have fewer possible domino combinations. If you see a very large Equals region, try to find a domino that fits one end and see if those same pips are available for the other cells in that group. Don't be afraid to work from the corners inward, as the edges often have the most restrictive constraints.",
-    "learned": "I learned today that Equals regions spanning across multiple dominoes are actually great for narrowing down your high-value pips like 5s and 6s. I also noticed that the empty cells are often the key to unlocking the dominoes next to them, acting as a silent hint for the rest of the board.",
+    "tips": "Try to look for the greater than or less than constraints first because they really limit which dominoes you can use in those specific spots. If you get stuck, look for the equals regions that cover three cells instead of two, as those are usually the anchors for the whole puzzle. Don't be afraid to pull a domino back off the board if a sum isn't working out; sometimes you just need to flip it around!",
+    "learned": "Today I learned that empty cells can actually be your best friends because they act like walls that guide where dominoes must go. I also noticed a pattern where the largest dominoes, like the [6,6], are almost always tucked away into the greater than regions or large sum areas, which helps narrow down the search area significantly. It really pays to scan the whole list of available dominoes before making your first move to see if any high-value ones are required for specific sums.",
     "faqs": [
       {
-        "question": "What does an empty cell mean in the NYT Pips puzzle?",
-        "answer": "An empty cell is a specific constraint where that part of the domino must have zero pips. It effectively acts as a target sum of zero for that single cell."
+        "question": "What does the empty square mean in NYT Pips?",
+        "answer": "An empty square is a constraint that means no domino can be placed on that specific cell. You have to work your dominoes around these gaps."
       },
       {
-        "question": "How do you solve Equals regions in Pips?",
-        "answer": "In an Equals region, every single cell within that colored area must contain the exact same number of pips, regardless of which domino they belong to."
+        "question": "How do you solve the sum constraints in Pips?",
+        "answer": "A sum constraint shows a number that the cells inside the outlined region must add up to. You need to pick dominoes whose pips total that exact target number when placed in those spots."
       },
       {
-        "question": "Can I reuse dominoes in the same Pips puzzle?",
-        "answer": "No, each domino provided in the list for the day can only be used once in the grid to complete the solution."
+        "question": "Can dominoes be placed diagonally in Pips?",
+        "answer": "No, dominoes can only be placed horizontally or vertically to cover two adjacent cells on the grid."
       },
       {
-        "question": "What is the best strategy for high sum constraints in Pips?",
-        "answer": "For regions that require a sum greater than 10, look for your dominoes with 5s and 6s immediately, as these are the only ones that can reach such a high total."
+        "question": "What is the best strategy for the hard level of Pips?",
+        "answer": "Start with the most restrictive constraints like greater than 5 or sums that require specific high or low numbers. Once the corners and edges are filled, the middle usually becomes much easier to solve."
+      },
+      {
+        "question": "Are all dominoes from a standard set used in every puzzle?",
+        "answer": "The game provides a specific list of dominoes for each puzzle, and you must use all of the ones listed in the tray to complete the grid."
       }
     ]
   }
